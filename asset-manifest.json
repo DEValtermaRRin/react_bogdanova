@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/static/css/main.402cd2fa.css",
-    "main.js": "/static/js/main.d8af835a.js",
-    "index.html": "/index.html",
-    "main.402cd2fa.css.map": "/static/css/main.402cd2fa.css.map",
-    "main.d8af835a.js.map": "/static/js/main.d8af835a.js.map"
+    "main.css": "/react_bogdanova/static/css/main.402cd2fa.css",
+    "main.js": "/react_bogdanova/static/js/main.d8af835a.js",
+    "index.html": "/react_bogdanova/index.html",
+    "main.402cd2fa.css.map": "/react_bogdanova/static/css/main.402cd2fa.css.map",
+    "main.d8af835a.js.map": "/react_bogdanova/static/js/main.d8af835a.js.map"
   },
   "entrypoints": [
     "static/css/main.402cd2fa.css",
