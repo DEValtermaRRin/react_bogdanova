@@ -24,13 +24,11 @@ export const Form = () => {
   };
 
   return (
-    <>
-      <div className="container">
-        <Input change={handleChange} value={value} />
-        <Button name={name} click={handleClick} />
-        <Message send={messages} />
-        <ButtonClear name={btnClear} click={clearMessages} />
-      </div>
-    </>
+    <div className="container">
+      <Input change={handleChange} value={value} />
+      <Button name={name} click={handleClick} />
+      <Message send={messages} />
+      <ButtonClear name={btnClear} click={clearMessages} />
+    </div>
   );
 };
