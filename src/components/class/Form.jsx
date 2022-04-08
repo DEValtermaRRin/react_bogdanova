@@ -1,20 +1,20 @@
-import React, { Component } from "react";
-import { Input } from "./Input";
-import { Button } from "./Button";
-import { Message } from "./Message";
-import { ButtonClear } from "./ButtonClear";
+import React, { Component } from 'react';
+import { Input } from './Input';
+import { Button } from './Button';
+import { Message } from './Message';
+import { ButtonClear } from './ButtonClear';
 
 export class Form extends Component {
   state = {
-    name: "Send message",
-    value: "",
+    name: 'Send message',
+    value: '',
     messages: [],
-    btnClear: "Clear messages",
+    btnClear: 'Clear messages',
   };
 
   handleClick = () => {
     this.setState({ messages: [...this.state.messages, this.state.value] });
-    this.setState({ value: "" });
+    this.setState({ value: '' });
   };
 
   handleChange = (e) => {

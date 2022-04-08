@@ -1,18 +1,18 @@
-import React, { useState } from "react";
-import { Input } from "./Input";
-import { Button } from "./Button";
-import { Message } from "./Message";
-import { ButtonClear } from "./ButtonClear";
+import React, { useState } from 'react';
+import { Input } from './Input';
+import { Button } from './Button';
+import { Message } from './Message';
+import { ButtonClear } from './ButtonClear';
 
 export const Form = () => {
-  const [name] = useState("Send message");
-  const [value, setValue] = useState("");
+  const [name] = useState('Send message');
+  const [value, setValue] = useState('');
   const [messages, setMessages] = useState([]);
-  const [btnClear] = useState("Clear messages");
+  const [btnClear] = useState('Clear messages');
 
   const handleClick = () => {
     setMessages([...messages, value]);
-    setValue("");
+    setValue('');
   };
 
   const handleChange = (e) => {
