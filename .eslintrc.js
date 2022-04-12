@@ -3,6 +3,7 @@ module.exports = {
     browser: true,
     node: true,
     es6: true,
+    jest: true,
   },
   extends: [
     'prettier',
@@ -11,6 +12,8 @@ module.exports = {
     'plugin:react/recommended',
     'prettier',
     'plugin:react-hooks/recommended',
+    'plugin:storybook/recommended',
+		'plugin:react/jsx-runtime'
   ],
   parserOptions: {
     ecmaFeatures: {
