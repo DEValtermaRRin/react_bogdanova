@@ -12,8 +12,7 @@ module.exports = {
     'plugin:react/recommended',
     'prettier',
     'plugin:react-hooks/recommended',
-    'plugin:storybook/recommended',
-		'plugin:react/jsx-runtime'
+    'plugin:storybook/recommended'
   ],
   parserOptions: {
     ecmaFeatures: {
