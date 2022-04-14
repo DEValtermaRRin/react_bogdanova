@@ -4,13 +4,15 @@
 /node_modules
 /.pnp
 .pnp.js
-../../stories
-/src/stories
+
+
+/src/stories/
 # testing
 /coverage
 
 # production
 /build
+./src/stories
 
 # misc
 .DS_Store

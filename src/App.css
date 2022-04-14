@@ -80,24 +80,7 @@ p {
   opacity: 0.6;
 }
 
-p:nth-child(odd) {
-	padding-left: 2px;
-}
 
-p:nth-child(even) {
-	padding-right: 2px;
-}
-
-textarea {
-	min-width: 250px;
-  padding: 10px;
-  background: none;
-  border: 2px solid #fff;
-  border-radius: 10px;
-  margin: 0px 10px 20px 0px;
-  font-size: 18px;
-  color: rgb(240, 228, 159);
-}
 
 form {
 	display: flex;
