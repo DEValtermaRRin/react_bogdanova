@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import { Form } from './components/func/Form';
-import { MessageList } from './components/func/MessageList';
+import { Form } from './components/Form/Form';
+import { MessageList } from './components/MessageList/MessageList';
 import { AUTHOR } from './constants';
 
 export const App = () => {
