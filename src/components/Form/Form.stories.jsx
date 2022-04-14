@@ -1,10 +1,10 @@
 import React from 'react';
-import { User } from './User';
+import { Form } from './Form';
 
 export default {
-  component: User,
+  component: Form,
 };
 
-const Template = (args) => <User {...args} />;
+const Template = (args) => <Form {...args} />;
 
 export const Test = Template.bind({});

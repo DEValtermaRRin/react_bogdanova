@@ -4,7 +4,8 @@
 /node_modules
 /.pnp
 .pnp.js
-
+../../stories
+/src/stories
 # testing
 /coverage
 
@@ -22,4 +23,3 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-/stories
