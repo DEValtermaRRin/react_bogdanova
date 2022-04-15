@@ -12,7 +12,7 @@ module.exports = {
     'plugin:react/recommended',
     'prettier',
     'plugin:react-hooks/recommended',
-    'plugin:storybook/recommended',
+    'plugin:storybook/recommended'
   ],
   parserOptions: {
     ecmaFeatures: {
@@ -23,13 +23,12 @@ module.exports = {
   },
   plugins: ['react', 'prettier', 'react-hooks', 'jest'],
   rules: {
+    'react/display-name': 'off',
     'prettier/prettier': [
       'error',
       {
         singleQuote: true,
       },
-      'error',
-      { endOfLine: 'auto' },
     ],
     'react/prop-types': 0,
     'linebreak-style': ['error', 'unix'],
@@ -44,9 +43,4 @@ module.exports = {
       },
     },
   ],
-  settings: {
-    react: {
-      version: 'detect',
-    },
-  },
 };

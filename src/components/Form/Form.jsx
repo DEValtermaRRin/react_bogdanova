@@ -15,7 +15,7 @@ export const Form = ({ addMessages }) => {
   };
 
   return (
-    <form onSubmit={handleClickSubmit} className='container'>
+    <form onSubmit={handleClickSubmit} className="container">
       <User name={userName} getName={setUserName} />
       <Message value={value} setValue={setValue} />
       <Button disabled={!userName} name={name} />
