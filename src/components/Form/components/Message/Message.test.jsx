@@ -7,25 +7,25 @@ import { Message } from './Message';
 
 describe('Message', () => {
   it('render component', () => {
-    render(<Message />)
+    render(<Message />);
   });
   it('render with snapshot', () => {
-    expect(render(<Message />)).toMatchSnapshot()
-  })
+    expect(render(<Message />)).toMatchSnapshot();
+  });
   it('placeholder correct value', () => {
-    render(<Message />)
-    expect(screen.getByPlaceholderText(/Your message/)).toBeInTheDocument()
-  })
+    render(<Message />);
+    expect(screen.getByPlaceholderText(/Your message/)).toBeInTheDocument();
+  });
   it('input is clear to type', () => {
-    render(<Message />)
+    render(<Message />);
     const textarea = screen.getByPlaceholderText('Your message');
-    expect(textarea.value).toBe('')
-  })
+    expect(textarea.value).toBe('');
+  });
   it('input value change by typing', () => {
-    const mockFn = jest.fn()
-    render(<Message setValue={mockFn} />)
-    const textarea = screen.getByPlaceholderText('Your message');    
-    fireEvent.change(textarea, { target: { value: 'test type' }})
-    expect(textarea.value).toBe('test type')
-  })
+    const mockFn = jest.fn();
+    render(<Message setValue={mockFn} />);
+    const textarea = screen.getByPlaceholderText('Your message');
+    fireEvent.change(textarea, { target: { value: 'test type' } });
+    expect(textarea.value).toBe('test type');
+  });
 });
