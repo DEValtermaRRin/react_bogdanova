@@ -28,13 +28,13 @@ module.exports = {
       'error',
       {
         singleQuote: true,
-      },
-    ],
+        endOfLine : "auto",
+      }],
     'react/prop-types': 0,
     'linebreak-style': ['error', 'unix'],
     quotes: ['warn', 'single'],
     semi: ['warn', 'always'],
-    "endOfLine":"auto",
+
   },
   overrides: [
     {
