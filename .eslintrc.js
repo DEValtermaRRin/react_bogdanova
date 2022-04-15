@@ -34,6 +34,7 @@ module.exports = {
     'linebreak-style': ['error', 'unix'],
     quotes: ['warn', 'single'],
     semi: ['warn', 'always'],
+    "endOfLine":"auto",
   },
   overrides: [
     {
