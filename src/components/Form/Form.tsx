@@ -1,14 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, FC } from 'react';
 import { Button } from './components/Button/Button';
 import { Message } from './components/Message/Message';
 import { User } from './components/User/User';
 
-export const Form = ({ addMessages }) => {
+interface FormProps {
+  addMessages(val: string, user: string): () => void
+}
+
+export const Form: FC<FormProps> = ({ addMessages }) => {
   const [name] = useState('Send message');
   const [value, setValue] = useState('');
   const [userName, setUserName] = useState('');
 
-  const handleClickSubmit = (e) => {
+  const handleClickSubmit = (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     addMessages(value, userName);
     setValue('');
