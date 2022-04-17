@@ -5,9 +5,10 @@ import { User } from './components/User/User';
 
 interface FormProps {
   addMessages: (val: string, user: string) => void;
+  onSubmit: () => void
 }
 
-export const Form = memo<FormProps>(({ addMessages }) => {
+export const Form = memo<FormProps>(({ addMessages, onSubmit }) => {
   const [name] = useState('Send message');
   const [value, setValue] = useState('');
   const [userName, setUserName] = useState('');
@@ -19,7 +20,7 @@ export const Form = memo<FormProps>(({ addMessages }) => {
   };
 
   return (
-    <form onSubmit={handleClickSubmit} className="container">
+    <form data-testid="form" onSubmit={handleClickSubmit} className="container">
       <User name={userName} getName={setUserName} />
       <Message value={value} setValue={setValue} />
       <Button disabled={!userName} name={name} />

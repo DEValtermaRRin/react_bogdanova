@@ -67,7 +67,7 @@ export const App: FC = () => {
   return (
     <div className="container">
       <MessageList messages={messages} />
-      <Form addMessages={addMessages} />
+      <Form addMessages={addMessages} onSubmit={Object} />
     </div>
   );
 };

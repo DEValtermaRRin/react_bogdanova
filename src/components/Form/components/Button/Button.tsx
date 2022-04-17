@@ -6,7 +6,7 @@ interface ButtonProps {
 }
 
 export const Button: FC<ButtonProps> = ({ name, disabled }) => (
-  <button className="btn btn-top" type="submit" disabled={disabled}>
+  <button data-testid="button" className="btn btn-top" type="submit" disabled={disabled}>
     {name}
   </button>
 );

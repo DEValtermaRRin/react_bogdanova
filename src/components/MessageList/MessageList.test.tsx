@@ -22,4 +22,4 @@ describe('MessageList', () => {
     render(<MessageList messages={[msg]} />)
     expect(screen.getByText(/vasya: hello/i)).toBeTruthy()
   })
-})
+  })
