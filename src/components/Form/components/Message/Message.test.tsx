@@ -1,12 +1,10 @@
 import React from 'react';
-import { fireEvent, render, screen } from '@testing-library/react';
-
+import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { Message } from './Message';
-/* import { unmountComponentAtNode } from 'react-dom'; */
+
 
 describe('Message', () => {
-  beforeEach
   it('render component', () => {
     const mockFn = jest.fn();
     render(<Message value='' setValue={mockFn} />);
@@ -21,6 +19,5 @@ describe('Message', () => {
     render(<Message value='Your message' setValue={mockFn} />);   
     expect(screen.getByPlaceholderText(/Your message/)).toBeInTheDocument();
   });
-
 });
 

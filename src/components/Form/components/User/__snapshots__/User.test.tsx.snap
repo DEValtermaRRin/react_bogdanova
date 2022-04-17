@@ -6,7 +6,8 @@ Object {
   "baseElement": <body>
     <div>
       <input
-        placeholder="Your name? "
+        data-testid="user"
+        placeholder="Your name?"
         type="text"
         value=""
       />
@@ -14,7 +15,8 @@ Object {
   </body>,
   "container": <div>
     <input
-      placeholder="Your name? "
+      data-testid="user"
+      placeholder="Your name?"
       type="text"
       value=""
     />

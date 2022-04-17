@@ -1,21 +1,55 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Message render with snapshot 1`] = `
+exports[`Form render with snapshot 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
+      <form
+        class="container"
+      >
+        <input
+          data-testid="user"
+          placeholder="Your name?"
+          type="text"
+          value=""
+        />
+        <textarea
+          data-testid="message"
+          placeholder="Your message"
+        />
+        <button
+          class="btn btn-top"
+          disabled=""
+          type="submit"
+        >
+          Send message
+        </button>
+      </form>
+    </div>
+  </body>,
+  "container": <div>
+    <form
+      class="container"
+    >
+      <input
+        data-testid="user"
+        placeholder="Your name?"
+        type="text"
+        value=""
+      />
       <textarea
         data-testid="message"
         placeholder="Your message"
       />
-    </div>
-  </body>,
-  "container": <div>
-    <textarea
-      data-testid="message"
-      placeholder="Your message"
-    />
+      <button
+        class="btn btn-top"
+        disabled=""
+        type="submit"
+      >
+        Send message
+      </button>
+    </form>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

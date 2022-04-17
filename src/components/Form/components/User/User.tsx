@@ -5,11 +5,11 @@ interface UserProps {
   getName: (e: string) => void
 }
 
-export const User: FC<UserProps> = ({ name, getName }) => (
-  <input
+export const User: FC<UserProps> = ({name, getName}) => (
+  <input data-testid="user"
     value={name}
     onChange={(e) => getName(e.target.value)}
     type="text"
-    placeholder="Your name? "
+    placeholder="Your name?"
   />
 );

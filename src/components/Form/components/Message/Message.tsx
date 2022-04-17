@@ -7,7 +7,7 @@ interface MessageProps {
 }
 
 export const Message: FC<MessageProps> = ({ value, setValue }) => (
-  <textarea
+  <textarea data-testid="message"
     value={value}
     onChange={(e) => setValue((e.target as any).value)}
     placeholder="Your message"

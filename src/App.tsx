@@ -1,11 +1,19 @@
-import React, { useState, useEffect } from 'react';
-import './App.css';
+import React, { FC, useState, useEffect, useCallback } from 'react';
 import { Form } from './components/Form/Form';
 import { MessageList } from './components/MessageList/MessageList';
 import { AUTHOR } from './constants';
+import { nanoid } from 'nanoid';
+import './App.css';
 
-export const App = () => {
-  const [messages, setMessages] = useState([]);
+
+interface Msg {
+  id?: string,
+  author: string,
+  value: string
+}
+
+export const App: FC = () => {
+  const [messages, setMessages] = useState<Msg[]>([]);
 
   useEffect(() => {
     if (messages.length > 0 && messages[messages.length - 1].value === '') {
@@ -13,6 +21,7 @@ export const App = () => {
         setMessages([
           ...messages,
           {
+            id: nanoid(),
             author: AUTHOR.BOT,
             value: 'You entered an empty message',
           },
@@ -31,6 +40,7 @@ export const App = () => {
         setMessages([
           ...messages,
           {
+            id: nanoid(),
             author: AUTHOR.BOT,
             value: 'some answer from bot',
           },
@@ -43,15 +53,16 @@ export const App = () => {
     }
   }, [messages]);
 
-  const addMessages = (value, userName) => {
-    setMessages([
-      ...messages,
+  const addMessages = useCallback((value:string, userName: string) => {
+    setMessages((prevMessage) => [
+      ...prevMessage,
       {
+        id: nanoid(),
         author: userName,
         value,
       },
     ]);
-  };
+  }, []);
 
   return (
     <div className="container">
