@@ -1,0 +1,10 @@
+.form {
+  display: flex;
+  justify-content: flex-end;
+  height: 40px;
+  width: 560px;
+  &__flex {
+    display: flex;
+    align-items: center;    
+  }
+}

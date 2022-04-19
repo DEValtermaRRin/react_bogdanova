@@ -28,11 +28,4 @@ describe('Button', () => {
     render(<Button name={'Some'} />);
     expect(screen.getByText(/Some/)).toBeInTheDocument();
   });
-  /*   it('button click', () => {
-    const clickButton = jest.fn()
-    render(<Button />)
-    const button = screen.getByRole('button')
-    fireEvent.click(button)
-    expect(clickButton).toBeCalled()
-  }) */
 });

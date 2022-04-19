@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import './MessageList.scss';
 
 interface Msg {
   id?: string;
@@ -11,10 +12,10 @@ interface MessageListProps {
 }
 
 export const MessageList: FC<MessageListProps> = ({ messages }) => (
-  <div data-testid="messageList" className="msg">
+  <div data-testid="messageList" className="messagelist">
     {messages.map((msg) => (
-      <p key={msg.id}>
-        {msg.author}: {msg.value}
+      <p className="msg" key={msg.id}>
+        <span className="msg__author">{msg.author} : </span> {msg.value}
       </p>
     ))}
   </div>

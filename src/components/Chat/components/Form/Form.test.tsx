@@ -8,17 +8,17 @@ import { TIMEOUT } from 'dns';
 describe('Form', () => {
   it('render component', () => {
     const mockFn = jest.fn();
-    render(<Form addMessages={Object} onSubmit={mockFn} />);
+    render(<Form addMessages={Object} onSubmit={mockFn} userName={''} />);
   });
   it('render with snapshot', () => {
     const mockFn = jest.fn();
     expect(
-      render(<Form addMessages={Object} onSubmit={mockFn} />),
+      render(<Form addMessages={Object} onSubmit={mockFn} userName={''} />),
     ).toMatchSnapshot();
   });
   it('render message with text', () => {
     const mockFn = jest.fn();
-    render(<Form addMessages={Object} onSubmit={mockFn} />);
+    render(<Form addMessages={Object} onSubmit={mockFn} userName={''} />);
     fireEvent.input(screen.getByTestId('message'), {
       target: { value: 'Hello' },
     });

@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import './Message.css';
+import './Message.scss';
 
 interface MessageProps {
   value: string;
@@ -8,6 +8,7 @@ interface MessageProps {
 
 export const Message: FC<MessageProps> = ({ value, setValue }) => (
   <textarea
+    className="message"
     data-testid="message"
     value={value}
     onChange={(e) => setValue(e.target.value)}
