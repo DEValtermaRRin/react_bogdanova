@@ -1,14 +1,14 @@
-import React, { useState, FC, memo } from 'react';
+import React, { useState, memo } from 'react';
 import { Button } from './components/Button/Button';
 import { Message } from './components/Message/Message';
 import { User } from './components/User/User';
 
 interface FormProps {
   addMessages: (val: string, user: string) => void;
-  onSubmit: () => void
+  onSubmit?: () => void;
 }
 
-export const Form = memo<FormProps>(({ addMessages, onSubmit }) => {
+export const Form = memo<FormProps>(({ addMessages }) => {
   const [name] = useState('Send message');
   const [value, setValue] = useState('');
   const [userName, setUserName] = useState('');

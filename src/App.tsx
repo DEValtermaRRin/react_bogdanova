@@ -3,13 +3,12 @@ import { Form } from './components/Form/Form';
 import { MessageList } from './components/MessageList/MessageList';
 import { AUTHOR } from './constants';
 import { nanoid } from 'nanoid';
-import './App.css';
-
+import './App.scss';
 
 interface Msg {
-  id?: string,
-  author: string,
-  value: string
+  id?: string;
+  author: string;
+  value: string;
 }
 
 export const App: FC = () => {
@@ -53,7 +52,7 @@ export const App: FC = () => {
     }
   }, [messages]);
 
-  const addMessages = useCallback((value:string, userName: string) => {
+  const addMessages = useCallback((value: string, userName: string) => {
     setMessages((prevMessage) => [
       ...prevMessage,
       {
