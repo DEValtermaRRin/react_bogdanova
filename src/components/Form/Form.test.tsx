@@ -1,10 +1,10 @@
 import React from 'react';
-import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { Form } from './Form';
-import userEvent from '@testing-library/user-event';
+/* import userEvent from '@testing-library/user-event';
 import { TIMEOUT } from 'dns';
-
+ */
 describe('Form', () => {
   it('render component', () => {
     const mockFn = jest.fn();
