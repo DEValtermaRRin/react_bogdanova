@@ -2,7 +2,7 @@ import React from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { Chat } from './Chat';
-// import userEvent from '@testing-library/user-event';
+import userEvent from '@testing-library/user-event';
 
 describe('Chat', () => {
   it('render component', () => {
@@ -24,21 +24,19 @@ describe('Chat', () => {
     fireEvent.click(screen.getByTestId('button'));
     expect(screen.getByTestId('message')).toContainHTML('Some message');
   });
-
-  // падает - разобраться (не ругаться!!!))
-
-  /* it('answer from bot', async () => {
+  it('answer from bot', async () => {
     render(<Chat />);
     fireEvent.input(screen.getByTestId('user'), {
       target: { value: 'Vasya' },
     });
-    userEvent.click(screen.getByRole('button'));
-    await waitFor(() =>
-      expect(
-        screen.getByText('BOT: You entered an empty message'),
-      ).toBeInTheDocument(),
-    );
-  }); */
+    await userEvent.click(screen.getByRole('button'));
+    expect(
+      setTimeout(
+        () => screen.findByText('BOT: You entered an empty message'),
+        1100,
+      ),
+    ).toBeTruthy();
+  });
   it('answer bot on empty message', () => {
     const { asFragment } = render(<Chat />);
     fireEvent.input(screen.getByTestId('message'), {

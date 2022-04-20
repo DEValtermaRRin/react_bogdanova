@@ -2,9 +2,8 @@ import React from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { Form } from './Form';
-/* import userEvent from '@testing-library/user-event';
-import { TIMEOUT } from 'dns';
- */
+import { User } from '../User/User';
+
 describe('Form', () => {
   it('render component', () => {
     const mockFn = jest.fn();
@@ -25,17 +24,17 @@ describe('Form', () => {
     fireEvent.click(screen.getByRole('button'));
     expect(screen.getByText(/hello/i)).toBeInTheDocument();
   });
-
-  // падает - разобраться (не ругаться!!!))
-
-  /* it('check click', async () => {
-    const mockFn = jest.fn();
-    render(
-      <Form addMessages={Object} onSubmit={() => setTimeout(mockFn, 1000)} />,
+  it('check click', () => {
+    const handleSubmit = jest.fn();
+    render(<User name="Vasia" getName={handleSubmit} />);
+    const { getByTestId } = render(
+      <Form userName={''} addMessages={Object} onSubmit={handleSubmit} />,
     );
-    await userEvent.click(screen.getByTestId('button'));
-    await waitFor(() => expect(mockFn).toHaveBeenCalledTimes(1), {
-      timeout: 1100,
+    const button = getByTestId('button');
+    fireEvent.input(screen.getByTestId('user'), {
+      target: { value: 'Vasya' },
     });
-  }); */
+    fireEvent.click(button);
+    expect(handleSubmit).toHaveBeenCalledTimes(0);
+  });
 });

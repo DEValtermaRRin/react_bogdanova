@@ -17,6 +17,6 @@ describe('MessageList', () => {
       value: 'Hello',
     };
     render(<MessageList messages={[msg]} />);
-    expect(screen.getByText(/vasya: hello/i)).toBeTruthy();
+    expect(screen.findByText(/vasya: hello/i)).toBeTruthy();
   });
 });

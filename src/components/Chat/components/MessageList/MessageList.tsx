@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
-import { Message, MessageItem } from '../MessageItem/MessageItem';
+import { MessageItem } from '../MessageItem/MessageItem';
 import './MessageList.scss';
 
-interface Msg {
-  id?: string;
+interface Message {
+  id: string;
   author: string;
   value: string;
 }

@@ -12,8 +12,8 @@ describe('User', () => {
     expect(render(<User name="" getName={mockFn} />)).toMatchSnapshot();
   });
   it('placeholder correct value', () => {
-    render(<User name="Your name?" getName={mockFn} />);
-    expect(screen.getByPlaceholderText(/Your name?/)).toBeInTheDocument();
+    render(<User name="Enter your name" getName={mockFn} />);
+    expect(screen.getByPlaceholderText(/Enter your name/i)).toBeInTheDocument();
   });
   it('value change by typing', () => {
     render(<User name="Vasia" getName={mockFn} />);
