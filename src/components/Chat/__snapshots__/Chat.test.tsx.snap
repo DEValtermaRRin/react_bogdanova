@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Chat answer bot on empty message 1`] = `
+<DocumentFragment>
+  <div
+    class="chat"
+  >
+    <div
+      class="user"
+    >
+      <div
+        class="user__icon"
+      />
+      <input
+        class="user__input"
+        data-testid="user"
+        placeholder="Enter your name"
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      class="messagelist"
+      data-testid="messageList"
+    />
+    <form
+      class="form"
+      data-testid="form"
+    >
+      <textarea
+        class="message"
+        data-testid="message"
+        placeholder="Your message"
+      />
+      <button
+        class="btn btn-top"
+        data-testid="button"
+        disabled=""
+        type="submit"
+      >
+         Send message
+      </button>
+    </form>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Chat render with snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="chat"
+  >
+    <div
+      class="user"
+    >
+      <div
+        class="user__icon"
+      />
+      <input
+        class="user__input"
+        data-testid="user"
+        placeholder="Enter your name"
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      class="messagelist"
+      data-testid="messageList"
+    />
+    <form
+      class="form"
+      data-testid="form"
+    >
+      <textarea
+        class="message"
+        data-testid="message"
+        placeholder="Your message"
+      />
+      <button
+        class="btn btn-top"
+        data-testid="button"
+        disabled=""
+        type="submit"
+      >
+         Send message
+      </button>
+    </form>
+  </div>
+</DocumentFragment>
+`;

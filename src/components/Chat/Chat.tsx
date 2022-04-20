@@ -1,11 +1,20 @@
-import React, { useState, useEffect } from 'react';
-import './App.css';
-import { Form } from './components/func/Form';
-import { MessageList } from './components/func/MessageList';
+import React, { FC, useState, useEffect, useCallback } from 'react';
+import { Form } from './components/Form/Form';
+import { MessageList } from './components/MessageList/MessageList';
 import { AUTHOR } from './constants';
+import { nanoid } from 'nanoid';
+import { User } from './components/User/User';
+import './Chat.scss';
 
-export const App = () => {
-  const [messages, setMessages] = useState([]);
+interface Message {
+  id: string;
+  author: string;
+  value: string;
+}
+
+export const Chat: FC = () => {
+  const [messages, setMessages] = useState<Message[]>([]);
+  const [userName, setUserName] = useState('');
 
   useEffect(() => {
     if (messages.length > 0 && messages[messages.length - 1].value === '') {
@@ -13,6 +22,7 @@ export const App = () => {
         setMessages([
           ...messages,
           {
+            id: nanoid(),
             author: AUTHOR.BOT,
             value: 'You entered an empty message',
           },
@@ -31,6 +41,7 @@ export const App = () => {
         setMessages([
           ...messages,
           {
+            id: nanoid(),
             author: AUTHOR.BOT,
             value: 'some answer from bot',
           },
@@ -43,20 +54,22 @@ export const App = () => {
     }
   }, [messages]);
 
-  const addMessages = (value, userName) => {
-    setMessages([
-      ...messages,
+  const addMessages = useCallback((value: string, userName: string) => {
+    setMessages((prevMessage) => [
+      ...prevMessage,
       {
+        id: nanoid(),
         author: userName,
         value,
       },
     ]);
-  };
+  }, []);
 
   return (
-    <div className="container">
+    <div className="chat">
+      <User name={userName} getName={setUserName} />
       <MessageList messages={messages} />
-      <Form addMessages={addMessages} />
+      <Form addMessages={addMessages} onSubmit={Object} userName={userName} />
     </div>
   );
 };
