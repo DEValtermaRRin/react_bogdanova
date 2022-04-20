@@ -35,6 +35,6 @@ describe('Form', () => {
       target: { value: 'Vasya' },
     });
     fireEvent.click(button);
-    expect(handleSubmit).toHaveBeenCalledTimes(0);
+    expect(handleSubmit).toHaveBeenCalledTimes(1);
   });
 });
