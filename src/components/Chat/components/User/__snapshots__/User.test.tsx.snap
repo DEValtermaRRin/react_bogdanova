@@ -5,21 +5,37 @@ Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
+      <div
+        class="user"
+      >
+        <div
+          class="user__icon"
+        />
+        <input
+          class="user__input"
+          data-testid="user"
+          placeholder="Enter your name"
+          type="text"
+          value=""
+        />
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="user"
+    >
+      <div
+        class="user__icon"
+      />
       <input
+        class="user__input"
         data-testid="user"
-        placeholder="Your name?"
+        placeholder="Enter your name"
         type="text"
         value=""
       />
     </div>
-  </body>,
-  "container": <div>
-    <input
-      data-testid="user"
-      placeholder="Your name?"
-      type="text"
-      value=""
-    />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

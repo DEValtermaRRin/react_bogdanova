@@ -1,23 +1,23 @@
 import React from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { App } from '../../App';
+import { Chat } from './Chat';
 // import userEvent from '@testing-library/user-event';
 
-describe('App', () => {
+describe('Chat', () => {
   it('render component', () => {
-    render(<App />);
+    render(<Chat />);
   });
   it('render with snapshot', () => {
-    const { asFragment } = render(<App />);
+    const { asFragment } = render(<Chat />);
     expect(asFragment()).toMatchSnapshot();
   });
-  it('field message is in App', () => {
-    render(<App />);
+  it('field message is in Chat', () => {
+    render(<Chat />);
     expect(screen.getByText('Send message')).toBeInTheDocument();
   });
   it('message output check', () => {
-    render(<App />);
+    render(<Chat />);
     fireEvent.input(screen.getByTestId('message'), {
       target: { value: 'Some message' },
     });
@@ -28,7 +28,7 @@ describe('App', () => {
   // падает - разобраться (не ругаться!!!))
 
   /* it('answer from bot', async () => {
-    render(<App />);
+    render(<Chat />);
     fireEvent.input(screen.getByTestId('user'), {
       target: { value: 'Vasya' },
     });
@@ -40,7 +40,7 @@ describe('App', () => {
     );
   }); */
   it('answer bot on empty message', () => {
-    const { asFragment } = render(<App />);
+    const { asFragment } = render(<Chat />);
     fireEvent.input(screen.getByTestId('message'), {
       target: { value: '' },
     });

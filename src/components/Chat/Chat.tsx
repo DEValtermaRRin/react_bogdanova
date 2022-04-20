@@ -6,14 +6,14 @@ import { nanoid } from 'nanoid';
 import { User } from './components/User/User';
 import './Chat.scss';
 
-interface Msg {
-  id?: string;
+interface Message {
+  id: string;
   author: string;
   value: string;
 }
 
 export const Chat: FC = () => {
-  const [messages, setMessages] = useState<Msg[]>([]);
+  const [messages, setMessages] = useState<Message[]>([]);
   const [userName, setUserName] = useState('');
 
   useEffect(() => {

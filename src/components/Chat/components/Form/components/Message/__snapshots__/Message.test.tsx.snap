@@ -6,6 +6,7 @@ Object {
   "baseElement": <body>
     <div>
       <textarea
+        class="message"
         data-testid="message"
         placeholder="Your message"
       />
@@ -13,6 +14,7 @@ Object {
   </body>,
   "container": <div>
     <textarea
+      class="message"
       data-testid="message"
       placeholder="Your message"
     />
