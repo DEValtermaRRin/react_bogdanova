@@ -12,6 +12,6 @@ interface MessageProps {
 
 export const MessageItem: FC<MessageProps> = memo(({ message }) => (
   <p className="msg" key={message.id}>
-    <span className="msg__author">{message.author} : </span> {message.value}
+    <span className="msg__author">{message.author} : </span> <span className='msg__text'>{message.value}</span>
   </p>
 ));

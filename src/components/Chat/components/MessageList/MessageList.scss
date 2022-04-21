@@ -30,13 +30,18 @@
   color: #fff;
   font-size: 18px;
   font-weight: 600;
-  margin-bottom: 5px;
+  margin-bottom: 7px;
+  &__text{
+    display: block;
+    width: 240px;
+  }
   &:nth-child(even) {
-    margin-left: 250px;
+    margin-left: 280px;
+    background-color: #62728A;
   }
   &__author {
     color: #1565c0;
-    font-weight: 700;
+    font-weight: 700;   
   }
 }
 
