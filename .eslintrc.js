@@ -38,7 +38,8 @@ module.exports = {
       files: ['webpack.config.js'],
       rules: {
         '@typescript-eslint/no-var-requires': ['off'],
-        '@typescript-eslint/no-empty-function':  ['off'],
+        'no-empty-function': 'off',
+        '@typescript-eslint/no-empty-function': ['error', {'allow': []}],
       },
     },
   ],

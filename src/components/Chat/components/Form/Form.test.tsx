@@ -21,7 +21,7 @@ describe('Form', () => {
     fireEvent.input(screen.getByTestId('message'), {
       target: { value: 'Hello' },
     });
-    fireEvent.click(screen.getByRole('button'));
+    fireEvent.click(screen.getByTestId('button'));
     expect(screen.getByText(/hello/i)).toBeInTheDocument();
   });
   it('check click', () => {

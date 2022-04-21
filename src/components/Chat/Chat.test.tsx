@@ -29,7 +29,7 @@ describe('Chat', () => {
     fireEvent.input(screen.getByTestId('user'), {
       target: { value: 'Vasya' },
     });
-    await userEvent.click(screen.getByRole('button'));
+    await userEvent.click(screen.getByTestId('button'));
     expect(
       setTimeout(
         () => screen.findByText('BOT: You entered an empty message'),
@@ -42,7 +42,7 @@ describe('Chat', () => {
     fireEvent.input(screen.getByTestId('message'), {
       target: { value: '' },
     });
-    fireEvent.click(screen.getByRole('button'));
+    fireEvent.click(screen.getByTestId('button'));
     expect(asFragment()).toMatchSnapshot();
   });
 });
