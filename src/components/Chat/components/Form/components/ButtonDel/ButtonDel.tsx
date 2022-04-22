@@ -1,14 +1,12 @@
 import React, { FC } from 'react';
 import './ButtonDell.scss';
 
-
-
 interface ButtonDelProps {
-  delMessages:() => void;
+  delMessages: () => void;
 }
 
-export const ButtonDel: FC<ButtonDelProps> = ({delMessages}) => (
-  <button className="del-button" onClick={delMessages}>
+export const ButtonDel: FC<ButtonDelProps> = ({ delMessages }) => (
+  <button className="del-button" onClick={delMessages} type="button">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 96 96"

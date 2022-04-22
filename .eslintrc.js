@@ -26,20 +26,22 @@ module.exports = {
   plugins: ['react', 'prettier', 'react-hooks', 'jest'],
   rules: {
     'react/display-name': 'off',
-    'prettier/prettier': 'error',
+    'prettier/prettier': [
+      'error',
+      {
+        singleQuote: true,
+      },
+    ],
     'react/prop-types': 0,
     'linebreak-style': ['error', 'unix'],
     quotes: ['warn', 'single'],
     semi: ['warn', 'always'],
-    'comma-dangle': ['error', 'always-multiline'],
   },
   overrides: [
     {
       files: ['webpack.config.js'],
       rules: {
         '@typescript-eslint/no-var-requires': ['off'],
-        'no-empty-function': 'off',
-        '@typescript-eslint/no-empty-function': ['error', {'allow': []}],
       },
     },
   ],

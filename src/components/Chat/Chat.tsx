@@ -65,8 +65,6 @@ export const Chat: FC = () => {
     ]);
   }, []);
 
-
-  // работает верно (по идее), но так как у нас используется useRffect, то при нажатии на кнопку наш массив меняется и в него приходит пустое сообщение - не понимаю, как исправить
   const delMessages = () => {
     setMessages([]);
   };
@@ -77,7 +75,6 @@ export const Chat: FC = () => {
       <MessageList messages={messages} />
       <Form
         addMessages={addMessages}
-        onSubmit={() => {}}
         userName={userName}
         delMessages={delMessages}
       />

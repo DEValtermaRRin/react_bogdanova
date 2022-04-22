@@ -7,7 +7,7 @@ interface MessageProps {
 }
 
 export const Message: FC<MessageProps> = ({ value, setValue }) => {
-  const refInput = useRef(null)
+  const refInput = useRef(null);
   return (
     <textarea
       ref={refInput}
