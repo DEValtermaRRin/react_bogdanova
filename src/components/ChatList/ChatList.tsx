@@ -1,9 +1,7 @@
-/* import React, { FC } from 'react';
+import React, { FC } from 'react';
 
 import './ChatList.scss';
 
 export const ChatList: FC = () => {
-  // const [chats] = useState([{}])
-  return <div className="chatlist">Заготовка ChatList</div>;
+  return <div className="chatlist"></div>;
 };
- */

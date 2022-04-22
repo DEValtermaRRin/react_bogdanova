@@ -14,4 +14,7 @@
   &::placeholder{
     color: #4979af75;
   }
+  &:focus{
+    border: 0.5px solid #284779;
+  }
 }

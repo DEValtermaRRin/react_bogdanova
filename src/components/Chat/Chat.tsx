@@ -65,11 +65,19 @@ export const Chat: FC = () => {
     ]);
   }, []);
 
+  const delMessages = () => {
+    setMessages([]);
+  };
+
   return (
     <div className="chat">
       <User name={userName} getName={setUserName} />
       <MessageList messages={messages} />
-      <Form addMessages={addMessages} onSubmit={Object} userName={userName} />
+      <Form
+        addMessages={addMessages}
+        userName={userName}
+        delMessages={delMessages}
+      />
     </div>
   );
 };

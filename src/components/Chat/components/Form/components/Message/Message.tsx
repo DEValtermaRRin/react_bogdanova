@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useRef } from 'react';
 import './Message.scss';
 
 interface MessageProps {
@@ -6,12 +6,16 @@ interface MessageProps {
   setValue: (e: string) => void;
 }
 
-export const Message: FC<MessageProps> = ({ value, setValue }) => (
-  <textarea
-    className="message"
-    data-testid="message"
-    value={value}
-    onChange={(e) => setValue(e.target.value)}
-    placeholder="Your message"
-  />
-);
+export const Message: FC<MessageProps> = ({ value, setValue }) => {
+  const refInput = useRef(null);
+  return (
+    <textarea
+      ref={refInput}
+      className="message"
+      data-testid="message"
+      value={value}
+      onChange={(e) => setValue(e.target.value)}
+      placeholder="Your message"
+    />
+  );
+};
