@@ -68,9 +68,9 @@ export const Chat: FC = () => {
   const delMessages = () => {
     setMessages([]);
   };
-
+  // TODO сделать чтобы автор отрисовывался справа, а в инпуте исчезал и ничего не падало!!!
   return (
-    <div className="chat">
+    <div className="container chat app">
       <User name={userName} getName={setUserName} />
       <MessageList messages={messages} />
       <Form

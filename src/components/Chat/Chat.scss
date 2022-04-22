@@ -1,3 +1,16 @@
+.container {
+  margin: 0 auto;
+  padding: 10px;
+}
+.app {
+  max-width: 800px;
+  margin-top: 20vh;
+  height: 60vh;
+  background-color: #161414;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
 .chat {
   display: flex;
   flex-direction: column;

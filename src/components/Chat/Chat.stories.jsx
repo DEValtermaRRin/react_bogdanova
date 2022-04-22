@@ -1,10 +1,10 @@
 import React from 'react';
-import { App } from './App';
+import { Chat } from './Chat';
 
 export default {
-  component: App,
+  component: Chat,
 };
 
-const Template = (args) => <App {...args} />;
+const Template = (args) => <Chat {...args} />;
 
 export const Test = Template.bind({});
