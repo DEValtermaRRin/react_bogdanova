@@ -7,7 +7,7 @@ import './ChatList.scss';
 
 interface ChatListProps {
   chatList: Chat[];
-  onAddChat: (chat: Chat[]) => void;
+  onAddChat: (chat: Chat) => void;
 }
 
 export const ChatList: FC<ChatListProps> = ({ chatList, onAddChat }) => {
@@ -16,13 +16,10 @@ export const ChatList: FC<ChatListProps> = ({ chatList, onAddChat }) => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (name) {
-      onAddChat([
-        ...chatList,
-        {
-          id: nanoid(),
-          name,
-        },
-      ]);
+      onAddChat({
+        id: nanoid(),
+        name,
+      });
 
       setName('');
     }
@@ -32,7 +29,7 @@ export const ChatList: FC<ChatListProps> = ({ chatList, onAddChat }) => {
       <ul className="chatlist">
         {chatList.map((chat) => (
           <li key={chat.id}>
-            <Link to={chat.id}>{chat.name}</Link>
+            <Link to={`/chats/${chat.id}`}>{chat.name}</Link>
           </li>
         ))}
       </ul>
