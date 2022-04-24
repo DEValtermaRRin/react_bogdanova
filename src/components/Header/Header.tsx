@@ -23,7 +23,7 @@ const navToolbar = [
 
 export const Header: FC = () => (
   <>
-    <header className='header'>
+    <header className="header">
       <ul>
         {navToolbar.map((link) => (
           <li key={link.id}>
@@ -37,7 +37,7 @@ export const Header: FC = () => (
         ))}
       </ul>
     </header>
-    <main className='main'>
+    <main className="main">
       <Outlet />
     </main>
   </>
