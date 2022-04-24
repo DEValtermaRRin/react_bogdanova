@@ -87,14 +87,9 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged",
-      "pre-push": "npm run test"
+      "pre-commit": "npm run lint",
+      "pre-push": "npm run lint && npm test"
     }
-  },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx,html,scss,css,sass}": [
-      "npm run lint"
-    ]
   },
   "loki": {
     "configurations": {

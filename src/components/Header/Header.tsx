@@ -22,22 +22,23 @@ const navToolbar = [
 /* NavLink / Link to == a href  (учебный момент)*/
 
 export const Header: FC = () => (
-  <header>
-    <ul>
-      {navToolbar.map((link) => (
-        <li key={link.id}>
-          <NavLink
-            to={link.to}
-            style={({ isActive }) => ({ color: isActive ? 'green' : 'blue' })}
-          >
-            {link.name}
-          </NavLink>
-        </li>
-      ))}
-    </ul>
-
-    <main>
+  <>
+    <header className='header'>
+      <ul>
+        {navToolbar.map((link) => (
+          <li key={link.id}>
+            <NavLink
+              to={link.to}
+              style={({ isActive }) => ({ color: isActive ? 'green' : 'blue' })}
+            >
+              {link.name}
+            </NavLink>
+          </li>
+        ))}
+      </ul>
+    </header>
+    <main className='main'>
       <Outlet />
     </main>
-  </header>
+  </>
 );
