@@ -29,7 +29,7 @@ export const ChatList: FC<ChatListProps> = ({ chatList, onAddChat }) => {
       <ul className="chatlist">
         {chatList.map((chat) => (
           <li key={chat.id}>
-            <Link to={`/chats/${chat.id}`}>{chat.name}</Link>
+            <Link to={`/chat/${chat.name}`}>{chat.name}</Link>
           </li>
         ))}
       </ul>

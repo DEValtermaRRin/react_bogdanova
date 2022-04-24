@@ -6,18 +6,50 @@ import userEvent from '@testing-library/user-event';
 
 describe('Chat', () => {
   it('render component', () => {
-    render(<Chat />);
+    const mockFn = jest.fn();
+    render(
+      <Chat
+        messages={{ a: [] }}
+        chatList={[]}
+        setMessages={mockFn}
+        onAddChat={mockFn}
+      />,
+    );
   });
   it('render with snapshot', () => {
-    const { asFragment } = render(<Chat />);
+    const mockFn = jest.fn();
+    const { asFragment } = render(
+      <Chat
+        messages={{}}
+        chatList={[]}
+        setMessages={mockFn}
+        onAddChat={mockFn}
+      />,
+    );
     expect(asFragment()).toMatchSnapshot();
   });
   it('field message is in Chat', () => {
-    render(<Chat />);
+    const mockFn = jest.fn();
+    render(
+      <Chat
+        messages={{}}
+        chatList={[]}
+        setMessages={mockFn}
+        onAddChat={mockFn}
+      />,
+    );
     expect(screen.getByText('Send message')).toBeInTheDocument();
   });
   it('message output check', () => {
-    render(<Chat />);
+    const mockFn = jest.fn();
+    render(
+      <Chat
+        messages={{}}
+        chatList={[]}
+        setMessages={mockFn}
+        onAddChat={mockFn}
+      />,
+    );
     fireEvent.input(screen.getByTestId('message'), {
       target: { value: 'Some message' },
     });
@@ -25,7 +57,15 @@ describe('Chat', () => {
     expect(screen.getByTestId('message')).toContainHTML('Some message');
   });
   it('answer from bot', async () => {
-    render(<Chat />);
+    const mockFn = jest.fn();
+    render(
+      <Chat
+        messages={{}}
+        chatList={[]}
+        setMessages={mockFn}
+        onAddChat={mockFn}
+      />,
+    );
     fireEvent.input(screen.getByTestId('user'), {
       target: { value: 'Vasya' },
     });
@@ -38,7 +78,15 @@ describe('Chat', () => {
     ).toBeTruthy();
   });
   it('answer bot on empty message', () => {
-    const { asFragment } = render(<Chat />);
+    const mockFn = jest.fn();
+    const { asFragment } = render(
+      <Chat
+        messages={{}}
+        chatList={[]}
+        setMessages={mockFn}
+        onAddChat={mockFn}
+      />,
+    );
     fireEvent.input(screen.getByTestId('message'), {
       target: { value: '' },
     });

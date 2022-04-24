@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Outlet, Link, NavLink } from 'react-router-dom';
+import { Outlet, NavLink } from 'react-router-dom';
 
 const navToolbar = [
   {
@@ -14,8 +14,8 @@ const navToolbar = [
   },
   {
     id: 3,
-    to: '/chats',
-    name: 'Chats',
+    to: '/chat',
+    name: 'Chat',
   },
 ];
 

@@ -1,4 +1,5 @@
-import React, { FC, useState } from 'react';
+import { nanoid } from 'nanoid';
+import React, { FC, useMemo, useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import './App.scss';
@@ -15,30 +16,42 @@ export interface Chat {
   name: string;
 }
 
-const initialChats: Chat[] = [
-  {
-    id: '1',
-    name: 'chat',
-  },
-];
 export interface Message {
   id: string;
   author: string;
   value: string;
 }
 
+const initialMessage: Messages = {
+  default: [
+    {
+      id: '1',
+      author: 'Alice in Wonderland',
+      value: 'Всё чудесатее и чудесатее',
+    },
+  ],
+};
+
 export interface Messages {
   [key: string]: Message[] /* [key: string] - динамическая переменная */;
 }
 export const App: FC = () => {
-  const [chatList, setChatList] = useState<Chat[]>(initialChats);
-  const [messages, setMessages] = useState<Messages>({});
+  const [messages, setMessages] = useState<Messages>(initialMessage);
+
+  const chatList = useMemo(
+    () =>
+      Object.entries(messages)?.map((chat) => ({
+        id: nanoid(),
+        name: chat[0],
+      })),
+    [Object.entries(messages)?.length, messages],
+  );
+
   const onAddChat = (chat: Chat) => {
-    setChatList([...chatList, chat]);
     setMessages({
       ...messages,
-      [chat.id]: [],
-    })
+      [chat.name]: [],
+    });
   };
   return (
     <div className="container app">
@@ -47,12 +60,10 @@ export const App: FC = () => {
           <Route path="/" element={<Header />}>
             <Route index element={<Home />} /> {/* index == path="" */}
             <Route path="profile" element={<Profile />} />
-            <Route path="chats">
+            <Route path="chat">
               <Route
                 index
-                element={
-                  <ChatList chatList={chatList} onAddChat={onAddChat} />
-                }
+                element={<ChatList chatList={chatList} onAddChat={onAddChat} />}
               />
               <Route
                 path=":chatId"

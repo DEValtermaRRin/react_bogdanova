@@ -6,17 +6,17 @@ import { nanoid } from 'nanoid';
 import { User } from './components/User/User';
 import './Chat.scss';
 import { ChatList } from '../ChatList/ChatList';
-import { Chat as OneChat, Message, Messages } from '../../App';
-import { useParams } from 'react-router-dom';
+import { Chat as OneChat, Messages } from '../../App';
+import { Navigate, useParams } from 'react-router-dom';
 
-interface ChatsProps {
+interface ChatProps {
   messages: Messages;
   setMessages: React.Dispatch<React.SetStateAction<Messages>>;
   chatList: OneChat[];
   onAddChat: (chat: OneChat) => void;
 }
 
-export const Chat: FC<ChatsProps> = ({
+export const Chat: FC<ChatProps> = ({
   chatList,
   onAddChat,
   messages,
@@ -28,7 +28,7 @@ export const Chat: FC<ChatsProps> = ({
   useEffect(() => {
     if (
       chatId &&
-      messages[chatId].length > 0 &&
+      messages[chatId]?.length > 0 &&
       messages[chatId][messages[chatId].length - 1].value === ''
     ) {
       const timeout = setTimeout(() => {
@@ -51,7 +51,7 @@ export const Chat: FC<ChatsProps> = ({
     }
     if (
       chatId &&
-      messages[chatId].length > 0 &&
+      messages[chatId]?.length > 0 &&
       messages[chatId][messages[chatId].length - 1].author !== AUTHOR.BOT
     ) {
       const timeout = setTimeout(() => {
@@ -72,30 +72,39 @@ export const Chat: FC<ChatsProps> = ({
         clearTimeout(timeout);
       };
     }
-  }, [messages]);
+  }, [chatId, messages, setMessages]);
 
-  const addMessages = useCallback((value: string, userName: string) => {
-    if (chatId) {
-      setMessages((prevMessage) => ({
-        ...prevMessage,
-        [chatId]: [
-          ...prevMessage[chatId],
-          {
-            id: nanoid(),
-            author: userName,
-            value,
-          },
-        ],
-      }));
-    }
-  }, [chatId, setMessages]);
-  // TODO разобраться с удалением!!!!
+  const addMessages = useCallback(
+    (value: string, userName: string) => {
+      if (chatId) {
+        setMessages((prevMessage) => ({
+          ...prevMessage,
+          [chatId]: [
+            ...prevMessage[chatId],
+            {
+              id: nanoid(),
+              author: userName,
+              value,
+            },
+          ],
+        }));
+      }
+    },
+    [chatId, setMessages],
+  );
+
   const delMessages = () => {
     if (chatId) {
-      setMessages({});
+      setMessages({
+        [chatId]: [],
+      });
     }
-    
   };
+
+  if (!chatList.find((chat) => chat.name === chatId)) {
+    return <Navigate replace to="/chat/" />;
+  }
+
   // TODO сделать чтобы автор отрисовывался справа, а в инпуте исчезал и ничего не падало!!!
   return (
     <div className="chat">
