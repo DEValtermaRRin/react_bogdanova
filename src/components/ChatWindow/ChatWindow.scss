@@ -1,0 +1,17 @@
+.chat {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 560px;
+  max-height: 99%;
+  background-color: #161414;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 5px;
+}
+
+.userform {
+  display: flex;
+  justify-content: space-between;
+}

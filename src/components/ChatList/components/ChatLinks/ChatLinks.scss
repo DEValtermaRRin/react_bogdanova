@@ -1,0 +1,60 @@
+// .chatlinks {
+//   height: 450px;
+//   overflow: hidden;
+//   overflow-y: scroll;
+//   &::-webkit-scrollbar {
+//     width: 10px;
+//   }
+//   &::-webkit-scrollbar-track {
+//     -webkit-box-shadow: 5px 5px 5px -5px #223c5033 inset;
+//     box-shadow: 5px 5px 5px -5px #223c5033 inset;
+//     background-color: #29292e;
+//     border-radius: 10px;
+//   }
+//   &::-webkit-scrollbar-thumb {
+//     border-radius: 10px;
+//     background: linear-gradient(180deg, #969899, #284779);
+//   }
+// }
+
+// .chatlink {
+//   width: 200px;
+//   min-height: 35px;
+//   border-radius: 10px;
+//   background-color: #576b86;
+//   line-height: 35px;
+//   padding-left: 7px;
+//   padding-right: 7px;
+//   font-size: 20px;
+//   font-weight: 600;
+//   word-wrap: break-word;
+//   margin-bottom: 5px;
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+//   flex-wrap: wrap;
+//   &:last-child{
+//     margin-bottom: 0;
+//   }
+//   & a {
+//     color: #284779;
+//     &:active {
+//       color: #ccc;
+//     }
+//     &:visited {
+//       color: #ccc;
+//     }
+//   }
+// }
+
+// .chatdel {
+
+//   width: 20px;
+//   height: 20px;
+//   background-color: #576b86;
+//   font-family: sans-serif;
+//   font-weight: 800;
+//   color: #ccc;
+
+  
+// }

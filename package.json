@@ -19,7 +19,7 @@
     "loki:update": "npm run build-storybook && loki update --requireReference --reactUri file:./storybook-static",
     "loki:approve": "loki approve",
     "loki:test": "npm run build-storybook && loki test --requireReference --reactUri file:./storybook-static",
-    "chromatic": "npx chromatic --project-token=85d9ef568377"
+    "chromatic": "npx chromatic --project-token=5924c730c8e7"
   },
   "dependencies": {
     "@emotion/react": "^11.9.0",
@@ -27,7 +27,8 @@
     "@mui/material": "^5.6.2",
     "prop-types": "^15.8.1",
     "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react-dom": "^18.0.0",
+    "react-router-dom": "^6.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.17.9",
@@ -75,6 +76,7 @@
     "mini-css-extract-plugin": "^2.6.0",
     "nanoid": "^3.3.2",
     "prettier": "^2.6.2",
+    "react-scripts": "^5.0.1",
     "sass": "^1.50.1",
     "sass-loader": "^12.6.0",
     "style-loader": "^3.3.1",
@@ -86,14 +88,9 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged",
-      "pre-push": "npm run test"
+      "pre-commit": "npm run lint",
+      "pre-push": "npm run lint && npm test"
     }
-  },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx,html,css,sass}": [
-      "npm run lint"
-    ]
   },
   "loki": {
     "configurations": {
