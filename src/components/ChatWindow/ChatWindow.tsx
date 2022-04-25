@@ -4,24 +4,18 @@ import { MessageList } from './components/MessageList/MessageList';
 import { AUTHOR } from './constants';
 import { nanoid } from 'nanoid';
 import { User } from './components/User/User';
-import './Chat.scss';
-import { ChatList } from '../ChatList/ChatList';
-import { Chat as OneChat, Messages } from '../../App';
-import { Navigate, useParams } from 'react-router-dom';
+import './ChatWindow.scss';
 
-interface ChatProps {
-  messages: Messages;
-  setMessages: React.Dispatch<React.SetStateAction<Messages>>;
-  chatList: OneChat[];
-  onAddChat: (chat: OneChat) => void;
-}
+// import { Messages } from '../../App';
+import { useParams } from 'react-router-dom';
+import { ShowUser } from './components/ShowUser/ShowUser';
 
-export const Chat: FC<ChatProps> = ({
-  chatList,
-  onAddChat,
-  messages,
-  setMessages,
-}) => {
+// interface ChatProps {
+//   messages: Messages;
+//   setMessages: React.Dispatch<React.SetStateAction<Messages>>;
+// }
+
+export const ChatWindow: FC<ChatProps> = ({ messages, setMessages }) => {
   const { chatId } = useParams();
   const [userName, setUserName] = useState('');
 
@@ -74,47 +68,46 @@ export const Chat: FC<ChatProps> = ({
     }
   }, [chatId, messages, setMessages]);
 
-  const addMessages = useCallback(
-    (value: string, userName: string) => {
-      if (chatId) {
-        setMessages((prevMessage) => ({
-          ...prevMessage,
-          [chatId]: [
-            ...prevMessage[chatId],
-            {
-              id: nanoid(),
-              author: userName,
-              value,
-            },
-          ],
-        }));
-      }
-    },
-    [chatId, setMessages],
-  );
+  // const addMessages = useCallback(
+  //   (value: string, userName: string) => {
+  //     if (chatId) {
+  //       setMessages((prevMessage) => ({
+  //         ...prevMessage,
+  //         [chatId]: [
+  //           ...prevMessage[chatId],
+  //           {
+  //             id: nanoid(),
+  //             author: userName,
+  //             value,
+  //           },
+  //         ],
+  //       }));
+  //     }
+  //   },
+  //   [chatId, setMessages],
+  // );
 
-  const delMessages = () => {
-    if (chatId) {
-      setMessages({
-        [chatId]: [],
-      });
-    }
-  };
+  // const delMessages = () => {
+  //   if (chatId) {
+  //     setMessages((prevChats) => ({
+  //       ...prevChats,
+  //       [chatId]: [],
+  //     }));
+  //   }
+  // };
 
-  if (!chatList.find((chat) => chat.name === chatId)) {
-    return <Navigate replace to="/chat/" />;
-  }
-
-  // TODO сделать чтобы автор отрисовывался справа, а в инпуте исчезал и ничего не падало!!!
   return (
     <div className="chat">
-      <ChatList chatList={chatList} onAddChat={onAddChat} />
-      <User name={userName} getName={setUserName} />
-      <MessageList messages={chatId ? messages[chatId] : []} />
+      <div className="userform">
+        <User name={userName} getName={setUserName} />
+        <ShowUser userName={userName} />
+      </div>
+
+      {/* <MessageList messages={chatId ? messages[chatId] : []} /> */}
       <Form
-        addMessages={addMessages}
+        // addMessages={addMessages}
         userName={userName}
-        delMessages={delMessages}
+        // delMessages={delMessages}
       />
     </div>
   );

@@ -1,16 +1,16 @@
 .message {
 	width: 360px;
-  padding: 5px 10px;
+  height: 30px;
+  max-height: 60px;
   background: #1e1b1b;
-  border: 0.1px solid #1a1c35;
+  border: 0.1px solid #284779;
   border-radius: 10px;
   text-align: left;
   color: #4978af;
   font-size: 16px;
   vertical-align: middle;
-  -webkit-box-shadow: 0px 0px 5px 3px #223c5033 inset;
-  -moz-box-shadow: 0px 0px 5px 3px #223c5033 inset;
-  box-shadow: 0px 0px 7px 3px #223c5033 inset;
+  margin-right: 10px;
+  padding: 4px 8px;
   &::placeholder{
     color: #4979af75;
   }

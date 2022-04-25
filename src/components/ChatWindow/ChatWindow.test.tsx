@@ -1,55 +1,30 @@
 import React from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { Chat } from './Chat';
-import userEvent from '@testing-library/user-event';
 
-describe('Chat', () => {
+import userEvent from '@testing-library/user-event';
+import { ChatWindow } from './ChatWindow';
+
+describe('ChatWindow', () => {
   it('render component', () => {
     const mockFn = jest.fn();
-    render(
-      <Chat
-        messages={{ a: [] }}
-        chatList={[]}
-        setMessages={mockFn}
-        onAddChat={mockFn}
-      />,
-    );
+    render(<ChatWindow messages={{ a: [] }} setMessages={mockFn} />);
   });
   it('render with snapshot', () => {
     const mockFn = jest.fn();
     const { asFragment } = render(
-      <Chat
-        messages={{}}
-        chatList={[]}
-        setMessages={mockFn}
-        onAddChat={mockFn}
-      />,
+      <ChatWindow messages={{}} setMessages={mockFn} />,
     );
     expect(asFragment()).toMatchSnapshot();
   });
-  it('field message is in Chat', () => {
+  it('field message is in ChatWindow', () => {
     const mockFn = jest.fn();
-    render(
-      <Chat
-        messages={{}}
-        chatList={[]}
-        setMessages={mockFn}
-        onAddChat={mockFn}
-      />,
-    );
+    render(<ChatWindow messages={{}} setMessages={mockFn} />);
     expect(screen.getByText('Send message')).toBeInTheDocument();
   });
   it('message output check', () => {
     const mockFn = jest.fn();
-    render(
-      <Chat
-        messages={{}}
-        chatList={[]}
-        setMessages={mockFn}
-        onAddChat={mockFn}
-      />,
-    );
+    render(<ChatWindow messages={{}} setMessages={mockFn} />);
     fireEvent.input(screen.getByTestId('message'), {
       target: { value: 'Some message' },
     });
@@ -58,14 +33,7 @@ describe('Chat', () => {
   });
   it('answer from bot', async () => {
     const mockFn = jest.fn();
-    render(
-      <Chat
-        messages={{}}
-        chatList={[]}
-        setMessages={mockFn}
-        onAddChat={mockFn}
-      />,
-    );
+    render(<ChatWindow messages={{}} setMessages={mockFn} />);
     fireEvent.input(screen.getByTestId('user'), {
       target: { value: 'Vasya' },
     });
@@ -80,12 +48,7 @@ describe('Chat', () => {
   it('answer bot on empty message', () => {
     const mockFn = jest.fn();
     const { asFragment } = render(
-      <Chat
-        messages={{}}
-        chatList={[]}
-        setMessages={mockFn}
-        onAddChat={mockFn}
-      />,
+      <ChatWindow messages={{}} setMessages={mockFn} />,
     );
     fireEvent.input(screen.getByTestId('message'), {
       target: { value: '' },

@@ -13,7 +13,6 @@ interface FormProps {
 
 export const Form = memo<FormProps>(
   ({ delMessages, userName, addMessages }) => {
-    const name = 'Send message';
     const [value, setValue] = useState('');
 
     const handleClickSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -25,7 +24,7 @@ export const Form = memo<FormProps>(
       <form data-testid="form" onSubmit={handleClickSubmit} className="form">
         <ButtonDel delMessages={delMessages} />
         <Message value={value} setValue={setValue} />
-        <Button disabled={!userName} name={name} />
+        <Button disabled={!userName} />
       </form>
     );
   },

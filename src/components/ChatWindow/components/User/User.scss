@@ -2,26 +2,26 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 35px;
-  height: 35px;
+  width: 30px;
+  height: 30px;
   background-color: #284779;
   overflow: hidden;
   border-radius: 15px;
-
-  &:hover{
+  margin: 3px;
+  &:hover {
     animation: user-dragout 0.5s ease-in-out 0.1s 1 normal forwards;
   }
 
   &:hover &__input {
     animation: input-dragout 0.5s ease-in-out 0.1s 1 normal forwards;
   }
-  
+
   &__icon {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 35px;
-    height: 35px;
+    width: 30px;
+    height: 30px;
     background: url(./assets/user.svg) 100%;
     background-color: #284779;
     border-radius: 50%;
@@ -31,22 +31,19 @@
     }
   }
   &__input {
-    height: 30px;
+    height: 26px;
     border-radius: 15px;
     border: none;
     background: #252424;
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 600;
     letter-spacing: 0.1rem;
     color: #366dc5;
     opacity: 0;
     width: 0;
     margin-right: 0px;
-        &::placeholder {
-          padding-left: 5px;
-      font-size: 16px;
-      color: #6e6969;
-      letter-spacing: 0.1rem;
+    &::placeholder {
+      color: #4979af75;
     }
   }
 }
