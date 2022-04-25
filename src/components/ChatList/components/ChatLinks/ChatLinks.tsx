@@ -5,7 +5,7 @@ import './ChatLinks.scss';
 
 interface ChatLinksProps {
   chatList: Chat[];
-  onDelChat: (chatName: string) => void
+  onDelChat: (chatName: string) => void;
 }
 
 export const ChatLinks: FC<ChatLinksProps> = ({ chatList, onDelChat }) => {
@@ -14,7 +14,11 @@ export const ChatLinks: FC<ChatLinksProps> = ({ chatList, onDelChat }) => {
       {chatList.map((chat) => (
         <li className="chatlink" key={chat.id}>
           <Link to={`/chat/${chat.name}`}>{chat.name}</Link>
-          <button type='button' onClick={() => onDelChat(chat.name)} className="chatdel">
+          <button
+            type="button"
+            onClick={() => onDelChat(chat.name)}
+            className="chatdel"
+          >
             <svg
               width="17px"
               height="17px"

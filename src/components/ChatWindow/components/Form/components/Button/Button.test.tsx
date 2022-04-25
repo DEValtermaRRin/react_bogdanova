@@ -26,6 +26,6 @@ describe('Button', () => {
   });
   it('render component with text', () => {
     render(<Button name={'Some'} />);
-    expect(screen.getByText(/Some/)).toBeInTheDocument();
+    expect(screen.getByTestId('button')).toBeInTheDocument();
   });
 });

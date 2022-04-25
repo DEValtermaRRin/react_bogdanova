@@ -36,7 +36,6 @@ export interface Messages {
 export const App: FC = () => {
   const [messages, setMessages] = useState<Messages>(initialMessage);
 
-
   const chatList = useMemo(
     () =>
       Object.entries(messages)?.map((chat) => ({
@@ -54,12 +53,12 @@ export const App: FC = () => {
   };
 
   const onDelChat = (chatName: string) => {
-    const allChats = {...messages};
-    delete allChats[chatName]
+    const allChats = { ...messages };
+    delete allChats[chatName];
     setMessages({
-      ...allChats
-    })
-  }
+      ...allChats,
+    });
+  };
 
   return (
     <div className="container app">
@@ -71,7 +70,13 @@ export const App: FC = () => {
             <Route path="chat">
               <Route
                 index
-                element={<ChatList onDelChat={onDelChat} chatList={chatList} onAddChat={onAddChat} />}
+                element={
+                  <ChatList
+                    onDelChat={onDelChat}
+                    chatList={chatList}
+                    onAddChat={onAddChat}
+                  />
+                }
               />
               <Route
                 path=":chatId"

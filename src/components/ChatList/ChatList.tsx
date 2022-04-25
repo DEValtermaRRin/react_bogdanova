@@ -8,10 +8,14 @@ import './ChatList.scss';
 interface ChatListProps {
   onAddChat: (chat: Chat) => void;
   chatList: Chat[];
-  onDelChat: (chatName: string) => void
+  onDelChat: (chatName: string) => void;
 }
 
-export const ChatList: FC<ChatListProps> = ({ onAddChat, chatList, onDelChat }) => {
+export const ChatList: FC<ChatListProps> = ({
+  onAddChat,
+  chatList,
+  onDelChat,
+}) => {
   const [name, setName] = useState('');
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {

@@ -1,23 +1,32 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Chat answer bot on empty message 1`] = `
+exports[`ChatWindow answer bot on empty message 1`] = `
 <DocumentFragment>
   <div
     class="chat"
   >
     <div
-      class="user"
+      class="userform"
     >
       <div
-        class="user__icon"
-      />
-      <input
-        class="user__input"
-        data-testid="user"
-        placeholder="Enter your name"
-        type="text"
-        value=""
-      />
+        class="user"
+      >
+        <div
+          class="user__icon"
+        />
+        <input
+          class="user__input"
+          data-testid="user"
+          placeholder="Enter your name"
+          type="text"
+          value=""
+        />
+      </div>
+      <p
+        class="showuser"
+      >
+        Hello, 
+      </p>
     </div>
     <div
       class="messagelist"
@@ -47,52 +56,56 @@ exports[`Chat answer bot on empty message 1`] = `
         placeholder="Your message"
       />
       <button
-        class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButtonBase-root Mui-disabled btn btn-top css-11qr2p8-MuiButtonBase-root-MuiButton-root"
+        class="btn"
         data-testid="button"
         disabled=""
-        tabindex="-1"
         type="submit"
       >
-        Send message
-        <span
-          class="MuiButton-endIcon MuiButton-iconSizeSmall css-155nyw6-MuiButton-endIcon"
+        <svg
+          class="ionicon"
+          viewBox="0 0 512 512"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-            data-testid="SendIcon"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M2.01 21 23 12 2.01 3 2 10l15 2-15 2z"
-            />
-          </svg>
-        </span>
+          <title>
+            Enter your name
+          </title>
+          <path
+            d="M470.3 271.15L43.16 447.31a7.83 7.83 0 01-11.16-7V327a8 8 0 016.51-7.86l247.62-47c17.36-3.29 17.36-28.15 0-31.44l-247.63-47a8 8 0 01-6.5-7.85V72.59c0-5.74 5.88-10.26 11.16-8L470.3 241.76a16 16 0 010 29.39z"
+          />
+        </svg>
       </button>
     </form>
   </div>
 </DocumentFragment>
 `;
 
-exports[`Chat render with snapshot 1`] = `
+exports[`ChatWindow render with snapshot 1`] = `
 <DocumentFragment>
   <div
     class="chat"
   >
     <div
-      class="user"
+      class="userform"
     >
       <div
-        class="user__icon"
-      />
-      <input
-        class="user__input"
-        data-testid="user"
-        placeholder="Enter your name"
-        type="text"
-        value=""
-      />
+        class="user"
+      >
+        <div
+          class="user__icon"
+        />
+        <input
+          class="user__input"
+          data-testid="user"
+          placeholder="Enter your name"
+          type="text"
+          value=""
+        />
+      </div>
+      <p
+        class="showuser"
+      >
+        Hello, 
+      </p>
     </div>
     <div
       class="messagelist"
@@ -122,28 +135,23 @@ exports[`Chat render with snapshot 1`] = `
         placeholder="Your message"
       />
       <button
-        class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButtonBase-root Mui-disabled btn btn-top css-11qr2p8-MuiButtonBase-root-MuiButton-root"
+        class="btn"
         data-testid="button"
         disabled=""
-        tabindex="-1"
         type="submit"
       >
-        Send message
-        <span
-          class="MuiButton-endIcon MuiButton-iconSizeSmall css-155nyw6-MuiButton-endIcon"
+        <svg
+          class="ionicon"
+          viewBox="0 0 512 512"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-            data-testid="SendIcon"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M2.01 21 23 12 2.01 3 2 10l15 2-15 2z"
-            />
-          </svg>
-        </span>
+          <title>
+            Enter your name
+          </title>
+          <path
+            d="M470.3 271.15L43.16 447.31a7.83 7.83 0 01-11.16-7V327a8 8 0 016.51-7.86l247.62-47c17.36-3.29 17.36-28.15 0-31.44l-247.63-47a8 8 0 01-6.5-7.85V72.59c0-5.74 5.88-10.26 11.16-8L470.3 241.76a16 16 0 010 29.39z"
+          />
+        </svg>
       </button>
     </form>
   </div>

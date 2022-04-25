@@ -10,7 +10,7 @@ interface WorkspaceProps {
   onAddChat: (chat: Chat) => void;
   messages: Messages;
   setMessages: React.Dispatch<React.SetStateAction<Messages>>;
-  onDelChat: (chatName: string) => void
+  onDelChat: (chatName: string) => void;
 }
 
 export const Workspace: FC<WorkspaceProps> = ({
@@ -26,7 +26,11 @@ export const Workspace: FC<WorkspaceProps> = ({
   }
   return (
     <div className="workspace">
-      <ChatList  chatList={chatList} onAddChat={onAddChat} onDelChat={onDelChat} />
+      <ChatList
+        chatList={chatList}
+        onAddChat={onAddChat}
+        onDelChat={onDelChat}
+      />
       <ChatWindow messages={messages} setMessages={setMessages} />
     </div>
   );
