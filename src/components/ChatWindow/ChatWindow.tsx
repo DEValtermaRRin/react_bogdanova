@@ -6,14 +6,14 @@ import { nanoid } from 'nanoid';
 import { User } from './components/User/User';
 import './ChatWindow.scss';
 
-// import { Messages } from '../../App';
+import { Messages } from '../../App';
 import { useParams } from 'react-router-dom';
 import { ShowUser } from './components/ShowUser/ShowUser';
 
-// interface ChatProps {
-//   messages: Messages;
-//   setMessages: React.Dispatch<React.SetStateAction<Messages>>;
-// }
+interface ChatProps {
+  messages: Messages;
+  setMessages: React.Dispatch<React.SetStateAction<Messages>>;
+}
 
 export const ChatWindow: FC<ChatProps> = ({ messages, setMessages }) => {
   const { chatId } = useParams();
@@ -68,33 +68,33 @@ export const ChatWindow: FC<ChatProps> = ({ messages, setMessages }) => {
     }
   }, [chatId, messages, setMessages]);
 
-  // const addMessages = useCallback(
-  //   (value: string, userName: string) => {
-  //     if (chatId) {
-  //       setMessages((prevMessage) => ({
-  //         ...prevMessage,
-  //         [chatId]: [
-  //           ...prevMessage[chatId],
-  //           {
-  //             id: nanoid(),
-  //             author: userName,
-  //             value,
-  //           },
-  //         ],
-  //       }));
-  //     }
-  //   },
-  //   [chatId, setMessages],
-  // );
+  const addMessages = useCallback(
+    (value: string, userName: string) => {
+      if (chatId) {
+        setMessages((prevMessage) => ({
+          ...prevMessage,
+          [chatId]: [
+            ...prevMessage[chatId],
+            {
+              id: nanoid(),
+              author: userName,
+              value,
+            },
+          ],
+        }));
+      }
+    },
+    [chatId, setMessages],
+  );
 
-  // const delMessages = () => {
-  //   if (chatId) {
-  //     setMessages((prevChats) => ({
-  //       ...prevChats,
-  //       [chatId]: [],
-  //     }));
-  //   }
-  // };
+  const delMessages = () => {
+    if (chatId) {
+      setMessages((prevChats) => ({
+        ...prevChats,
+        [chatId]: [],
+      }));
+    }
+  };
 
   return (
     <div className="chat">
@@ -103,11 +103,11 @@ export const ChatWindow: FC<ChatProps> = ({ messages, setMessages }) => {
         <ShowUser userName={userName} />
       </div>
 
-      {/* <MessageList messages={chatId ? messages[chatId] : []} /> */}
+      <MessageList messages={chatId ? messages[chatId] : []} />
       <Form
-        // addMessages={addMessages}
+        addMessages={addMessages}
         userName={userName}
-        // delMessages={delMessages}
+        delMessages={delMessages}
       />
     </div>
   );
