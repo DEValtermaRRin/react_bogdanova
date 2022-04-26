@@ -12,7 +12,7 @@ Object {
           class="user__icon"
         />
         <input
-          class="user__input"
+          class="user__icon"
           data-testid="user"
           placeholder="Enter your name"
           type="text"
@@ -29,7 +29,7 @@ Object {
         class="user__icon"
       />
       <input
-        class="user__input"
+        class="user__icon"
         data-testid="user"
         placeholder="Enter your name"
         type="text"

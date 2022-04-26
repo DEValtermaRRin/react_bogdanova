@@ -21,28 +21,4 @@
   }
 }
 
-.msg {
-  padding: 10px;
-  background-color: #ffffff79;
-  max-width: 250px;
-  min-height: 50px;
-  border-radius: 10px;
-  color: #fff;
-  font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 7px;
-  word-wrap: break-word;
-  &__text{
-    display: block;
-    width: 240px;
-  }
-  &:nth-child(even) {
-    margin-left: 280px;
-    background-color: #62728A;
-  }
-  &__author {
-    color: #1565c0;
-    font-weight: 700;   
-  }
-}
 

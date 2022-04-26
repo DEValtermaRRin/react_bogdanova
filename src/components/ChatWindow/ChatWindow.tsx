@@ -1,14 +1,14 @@
 import React, { FC, useState, useEffect, useCallback } from 'react';
+import { useParams } from 'react-router-dom';
+import { nanoid } from 'nanoid';
 import { Form } from './components/Form/Form';
 import { MessageList } from './components/MessageList/MessageList';
 import { AUTHOR } from './constants';
-import { nanoid } from 'nanoid';
 import { User } from './components/User/User';
-import './ChatWindow.scss';
-
 import { Messages } from '../../App';
-import { useParams } from 'react-router-dom';
 import { ShowUser } from './components/ShowUser/ShowUser';
+// import { WithClasses } from '../../HOC/WithClasses';
+import style from './ChatWindow.module.scss';
 
 interface ChatProps {
   messages: Messages;
@@ -18,6 +18,7 @@ interface ChatProps {
 export const ChatWindow: FC<ChatProps> = ({ messages, setMessages }) => {
   const { chatId } = useParams();
   const [userName, setUserName] = useState('');
+  // const MessageListWithClass = WithClasses(MessageList)
 
   useEffect(() => {
     if (
@@ -97,12 +98,12 @@ export const ChatWindow: FC<ChatProps> = ({ messages, setMessages }) => {
   };
 
   return (
-    <div className="chat">
-      <div className="userform">
+    <div className={style.chat}>
+      <div className={style.userform}>
         <User name={userName} getName={setUserName} />
         <ShowUser userName={userName} />
       </div>
-
+      {/* <MessageListWithClass messages={chatId ? messages[chatId] : []} classes={styles.messagelist}/> */}
       <MessageList messages={chatId ? messages[chatId] : []} />
       <Form
         addMessages={addMessages}

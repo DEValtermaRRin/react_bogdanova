@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
 import { Chat } from '../../../../App';
-import './ChatLinks.scss';
+import style from './ChatLinks.module.scss';
 
 interface ChatLinksProps {
   chatList: Chat[];
@@ -10,14 +10,14 @@ interface ChatLinksProps {
 
 export const ChatLinks: FC<ChatLinksProps> = ({ chatList, onDelChat }) => {
   return (
-    <ul className="chatlinks">
+    <ul className={style.chatlinks}>
       {chatList.map((chat) => (
-        <li className="chatlink" key={chat.id}>
+        <li className={style.chatlink} key={chat.id}>
           <Link to={`/chat/${chat.name}`}>{chat.name}</Link>
           <button
             type="button"
             onClick={() => onDelChat(chat.name)}
-            className="chatdel"
+            className={style.chatdel}
           >
             <svg
               width="17px"

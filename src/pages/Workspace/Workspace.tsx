@@ -3,7 +3,7 @@ import { ChatWindow } from '../../components/ChatWindow/ChatWindow';
 import { ChatList } from '../../components/ChatList/ChatList';
 import { Chat, Messages } from '../../App';
 import { Navigate, useParams } from 'react-router-dom';
-import './Workspace.scss';
+import style from './Workspace.module.scss';
 
 interface WorkspaceProps {
   chatList: Chat[];
@@ -25,7 +25,7 @@ export const Workspace: FC<WorkspaceProps> = ({
     return <Navigate replace to="/chat" />;
   }
   return (
-    <div className="workspace">
+    <div className={style.workspace}>
       <ChatList
         chatList={chatList}
         onAddChat={onAddChat}
