@@ -1,5 +1,5 @@
 import React, { FC, useRef } from 'react';
-import './Message.scss';
+import style from './Message.module.scss';
 
 interface MessageProps {
   value: string;
@@ -11,7 +11,7 @@ export const Message: FC<MessageProps> = ({ value, setValue }) => {
   return (
     <textarea
       ref={refInput}
-      className="message"
+      className={style.message}
       data-testid="message"
       value={value}
       onChange={(e) => setValue(e.target.value)}

@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { Outlet, NavLink } from 'react-router-dom';
-import './Header.scss';
+import style from './Header.module.scss';
 
 const navToolbar = [
   {
@@ -24,10 +24,10 @@ const navToolbar = [
 
 export const Header: FC = () => (
   <>
-    <header className="header">
+    <header className={style.header}>
       <ul>
         {navToolbar.map((link) => (
-          <li className="header__link" key={link.id}>
+          <li className={style.header__link} key={link.id}>
             <NavLink
               to={link.to}
               style={({ isActive }) => ({
@@ -40,7 +40,7 @@ export const Header: FC = () => (
         ))}
       </ul>
     </header>
-    <main className="main">
+    <main>
       <Outlet />
     </main>
   </>

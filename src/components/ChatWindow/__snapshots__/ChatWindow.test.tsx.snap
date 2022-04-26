@@ -15,7 +15,7 @@ exports[`ChatWindow answer bot on empty message 1`] = `
           class="user__icon"
         />
         <input
-          class="user__input"
+          class="user__icon"
           data-testid="user"
           placeholder="Enter your name"
           type="text"
@@ -37,7 +37,7 @@ exports[`ChatWindow answer bot on empty message 1`] = `
       data-testid="form"
     >
       <button
-        class="del-button"
+        class="delbutton"
         type="button"
       >
         <svg
@@ -94,7 +94,7 @@ exports[`ChatWindow render with snapshot 1`] = `
           class="user__icon"
         />
         <input
-          class="user__input"
+          class="user__icon"
           data-testid="user"
           placeholder="Enter your name"
           type="text"
@@ -116,7 +116,7 @@ exports[`ChatWindow render with snapshot 1`] = `
       data-testid="form"
     >
       <button
-        class="del-button"
+        class="delbutton"
         type="button"
       >
         <svg

@@ -3,7 +3,7 @@ import React, { FC, useState } from 'react';
 import { Chat } from '../../App';
 import { ChatLinks } from './components/ChatLinks/ChatLinks';
 import { ChatForm } from './components/ChatsForm/ChatsForm';
-import './ChatList.scss';
+import style from './ChatList.module.scss';
 
 interface ChatListProps {
   onAddChat: (chat: Chat) => void;
@@ -31,7 +31,7 @@ export const ChatList: FC<ChatListProps> = ({
   };
 
   return (
-    <div className="chatlist">
+    <div className={style.chatlist}>
       <ChatLinks chatList={chatList} onDelChat={onDelChat} />
       <ChatForm value={name} handleSubmit={handleSubmit} setName={setName} />
     </div>

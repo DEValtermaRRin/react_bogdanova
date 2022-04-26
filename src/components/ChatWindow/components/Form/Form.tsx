@@ -2,7 +2,7 @@ import React, { useState, memo } from 'react';
 import { Button } from './components/Button/Button';
 import { ButtonDel } from './components/ButtonDel/ButtonDel';
 import { Message } from './components/Message/Message';
-import './Form.scss';
+import style from './Form.module.scss';
 
 interface FormProps {
   addMessages: (val: string, user: string) => void;
@@ -21,7 +21,11 @@ export const Form = memo<FormProps>(
       setValue('');
     };
     return (
-      <form data-testid="form" onSubmit={handleClickSubmit} className="form">
+      <form
+        data-testid="form"
+        onSubmit={handleClickSubmit}
+        className={style.form}
+      >
         <ButtonDel delMessages={delMessages} />
         <Message value={value} setValue={setValue} />
         <Button disabled={!userName} />

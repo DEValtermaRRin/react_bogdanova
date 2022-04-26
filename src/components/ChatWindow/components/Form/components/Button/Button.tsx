@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import './Button.scss';
+import style from './Button.module.scss';
 
 interface ButtonProps {
   disabled?: boolean;
@@ -9,7 +9,7 @@ interface ButtonProps {
 export const Button: FC<ButtonProps> = ({ disabled }) => (
   <button
     data-testid="button"
-    className="btn"
+    className={style.btn}
     type="submit"
     disabled={disabled}
   >

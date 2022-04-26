@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import './User.scss';
+import style from './User.module.scss';
 
 interface UserProps {
   name: string;
@@ -7,10 +7,10 @@ interface UserProps {
 }
 
 export const User: FC<UserProps> = ({ name, getName }) => (
-  <div className="user">
-    <div className="user__icon"></div>
+  <div className={style.user}>
+    <div className={style.user__icon}></div>
     <input
-      className="user__input"
+      className={style.user__icon}
       data-testid="user"
       value={name}
       onChange={(e) => getName(e.target.value)}

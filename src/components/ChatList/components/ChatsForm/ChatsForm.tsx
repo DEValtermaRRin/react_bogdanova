@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import './ChatsForm.scss';
+import style from './ChatsForm.module.scss';
 
 interface ChatFormProps {
   handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
@@ -12,14 +12,14 @@ export const ChatForm: FC<ChatFormProps> = ({
   value,
   setName,
 }) => (
-  <form className="chatsform" onSubmit={handleSubmit}>
+  <form className={style.chatsform} onSubmit={handleSubmit}>
     <input
-      className="input-add"
+      className={style.input_add}
       type="text"
       value={value}
       onChange={(e) => setName(e.target.value)}
     />
-    <button className="button-add" type="submit">
+    <button className={style.button_add} type="submit">
       +
     </button>
   </form>

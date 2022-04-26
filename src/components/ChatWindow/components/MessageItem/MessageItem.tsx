@@ -1,4 +1,5 @@
 import React, { FC, memo } from 'react';
+import style from './MessageItem.module.scss';
 
 export interface Message {
   id: string;
@@ -11,8 +12,8 @@ interface MessageProps {
 }
 
 export const MessageItem: FC<MessageProps> = memo(({ message }) => (
-  <p className="msg" key={message.id}>
-    <span className="msg__author">{message.author} : </span>{' '}
-    <span className="msg__text">{message.value}</span>
+  <p className={style.msg} key={message.id}>
+    <span className={style.msg__author}>{message.author} : </span>{' '}
+    <span className={style.msg__text}>{message.value}</span>
   </p>
 ));

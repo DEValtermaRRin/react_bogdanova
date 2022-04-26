@@ -7,7 +7,8 @@ import { Home } from './pages/Home';
 import { Profile } from './pages/Profile';
 import { Workspace } from './pages/Workspace/Workspace';
 import { PageNotFound } from './components/PageNotFound/PageNotFound';
-import './App.scss';
+import { defaultContext, ThemeContext } from './utils/ThemeContext';
+import style from './App.module.scss';
 
 export interface Chat {
   id: string;
@@ -33,8 +34,10 @@ const initialMessage: Messages = {
 export interface Messages {
   [key: string]: Message[] /* [key: string] - динамическая переменная */;
 }
+
 export const App: FC = () => {
   const [messages, setMessages] = useState<Messages>(initialMessage);
+  const [theme, setTheme] = useState(defaultContext.theme);
 
   const chatList = useMemo(
     () =>
@@ -46,10 +49,13 @@ export const App: FC = () => {
   );
 
   const onAddChat = (chat: Chat) => {
-    setMessages({
-      ...messages,
-      [chat.name]: [],
-    });
+    if (!messages[chat.name]) {
+      setMessages({
+        ...messages,
+        [chat.name]: [],
+      });
+    }
+    // TODO вывести уведомление о том, что чат с таким именем уже есть
   };
 
   const onDelChat = (chatName: string) => {
@@ -60,42 +66,54 @@ export const App: FC = () => {
     });
   };
 
+  const toggleTheme = () => {
+    setTheme(theme === 'dark' ? 'light' : 'dark');
+  };
   return (
-    <div className="container app">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Header />}>
-            <Route index element={<Home />} /> {/* index == path="" */}
-            <Route path="profile" element={<Profile />} />
-            <Route path="chat">
-              <Route
-                index
-                element={
-                  <ChatList
-                    onDelChat={onDelChat}
-                    chatList={chatList}
-                    onAddChat={onAddChat}
+    <ThemeContext.Provider
+      value={{
+        theme,
+        toggleTheme,
+      }}
+    >
+      <div className={style.container}>
+        <div className={style.app}>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Header />}>
+                <Route index element={<Home />} /> {/* index == path="" */}
+                <Route path="profile" element={<Profile />} />
+                <Route path="chat">
+                  <Route
+                    index
+                    element={
+                      <ChatList
+                        onDelChat={onDelChat}
+                        chatList={chatList}
+                        onAddChat={onAddChat}
+                      />
+                    }
                   />
-                }
-              />
-              <Route
-                path=":chatId"
-                element={
-                  <Workspace
-                    chatList={chatList}
-                    onAddChat={onAddChat}
-                    messages={messages}
-                    setMessages={setMessages}
-                    onDelChat={onDelChat}
+                  <Route
+                    path=":chatId"
+                    element={
+                      <Workspace
+                        chatList={chatList}
+                        onAddChat={onAddChat}
+                        messages={messages}
+                        setMessages={setMessages}
+                        onDelChat={onDelChat}
+                      />
+                    }
                   />
-                }
-              />
-            </Route>
-          </Route>
+                </Route>
+              </Route>
 
-          <Route path="*" element={<PageNotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </div>
+              <Route path="*" element={<PageNotFound />} />
+            </Routes>
+          </BrowserRouter>
+        </div>
+      </div>
+    </ThemeContext.Provider>
   );
 };
