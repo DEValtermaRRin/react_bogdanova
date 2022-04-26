@@ -20,7 +20,7 @@ describe('ChatWindow', () => {
   it('field message is in ChatWindow', () => {
     const mockFn = jest.fn();
     render(<ChatWindow messages={{}} setMessages={mockFn} />);
-    expect(screen.getByText('Send message')).toBeInTheDocument();
+    expect(screen.getByTestId('button')).toBeInTheDocument();
   });
   it('message output check', () => {
     const mockFn = jest.fn();
