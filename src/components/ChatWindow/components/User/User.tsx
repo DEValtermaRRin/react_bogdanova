@@ -18,6 +18,4 @@ export const User: FC<UserProps> = ({ name, getName }) => (
       placeholder="Enter your name"
     />
   </div>
-
-  
 );

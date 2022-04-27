@@ -30,8 +30,12 @@ exports[`ChatWindow answer bot on empty message 1`] = `
     </div>
     <div
       class="messagelist"
-      data-testid="messageList"
-    />
+    >
+      <div
+        class="messagelist"
+        data-testid="messageList"
+      />
+    </div>
     <form
       class="form"
       data-testid="form"
@@ -109,8 +113,12 @@ exports[`ChatWindow render with snapshot 1`] = `
     </div>
     <div
       class="messagelist"
-      data-testid="messageList"
-    />
+    >
+      <div
+        class="messagelist"
+        data-testid="messageList"
+      />
+    </div>
     <form
       class="form"
       data-testid="form"

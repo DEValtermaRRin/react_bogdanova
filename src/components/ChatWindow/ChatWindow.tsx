@@ -18,7 +18,7 @@ interface ChatProps {
 export const ChatWindow: FC<ChatProps> = ({ messages, setMessages }) => {
   const { chatId } = useParams();
   const [userName, setUserName] = useState('');
-  const MessageListWithClass = WithClasses(MessageList)
+  const MessageListWithClass = WithClasses(MessageList);
 
   useEffect(() => {
     if (
@@ -103,7 +103,10 @@ export const ChatWindow: FC<ChatProps> = ({ messages, setMessages }) => {
         <User name={userName} getName={setUserName} />
         <ShowUser userName={userName} />
       </div>
-      <MessageListWithClass messages={chatId ? messages[chatId] : []} classes={style.messagelist}/>
+      <MessageListWithClass
+        messages={chatId ? messages[chatId] : []}
+        classes={style.messagelist}
+      />
       {/* <MessageList messages={chatId ? messages[chatId] : []} /> */}
       <Form
         addMessages={addMessages}
