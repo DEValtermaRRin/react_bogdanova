@@ -70,11 +70,6 @@ export const App: FC = () => {
   };
 
   const toggleTheme = () => {
-    if (theme === 'dark') {
-      style.body = '$darkTheme';
-    } else {
-      style.body = '$lightTheme';
-    }
     setTheme(theme === 'dark' ? 'light' : 'dark');
   };
   return (
