@@ -2,7 +2,7 @@ import React, { FC, useContext, useState } from 'react';
 import { ThemeContext } from '../utils/ThemeContext';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeName, toggleProfile } from '../store/profile/actions';
-import { ProfileState } from 'src/store/profile/reducer';
+import { ProfileState } from '../store/profile/reducer';
 
 export const Profile: FC = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);

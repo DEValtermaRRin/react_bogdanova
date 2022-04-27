@@ -5,12 +5,12 @@
         "name": "typescript-plugin-css-modules"
       }
     ],
-    "baseUrl": ".",
-    "paths": {
-      "src/*": [
-        "./src/*"
-      ],
-    },
+    // "baseUrl": ".",
+    // "paths": {
+    //   "src/*": [
+    //     "./src/*"
+    //   ],
+    // },
     /* Visit https://aka.ms/tsconfig.json to read more about this file */
 
     /* Projects */
