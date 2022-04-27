@@ -1,6 +1,7 @@
 import { nanoid } from 'nanoid';
 import React, { FC, useMemo, useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Provider } from 'react-redux';
 import { ChatList } from './components/ChatList/ChatList';
 import { Header } from './components/Header/Header';
 import { Home } from './pages/Home';
@@ -8,6 +9,8 @@ import { Profile } from './pages/Profile';
 import { Workspace } from './pages/Workspace/Workspace';
 import { PageNotFound } from './components/PageNotFound/PageNotFound';
 import { defaultContext, ThemeContext } from './utils/ThemeContext';
+import { store } from './store';
+
 import style from './App.module.scss';
 
 export interface Chat {
@@ -67,53 +70,60 @@ export const App: FC = () => {
   };
 
   const toggleTheme = () => {
+    if (theme === 'dark') {
+      style.body = '$darkTheme'
+    } else {
+      style.body = '$lightTheme'
+    }
     setTheme(theme === 'dark' ? 'light' : 'dark');
   };
   return (
-    <ThemeContext.Provider
-      value={{
-        theme,
-        toggleTheme,
-      }}
-    >
-      <div className={style.container}>
-        <div className={style.app}>
-          <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<Header />}>
-                <Route index element={<Home />} /> {/* index == path="" */}
-                <Route path="profile" element={<Profile />} />
-                <Route path="chat">
-                  <Route
-                    index
-                    element={
-                      <ChatList
-                        onDelChat={onDelChat}
-                        chatList={chatList}
-                        onAddChat={onAddChat}
-                      />
-                    }
-                  />
-                  <Route
-                    path=":chatId"
-                    element={
-                      <Workspace
-                        chatList={chatList}
-                        onAddChat={onAddChat}
-                        messages={messages}
-                        setMessages={setMessages}
-                        onDelChat={onDelChat}
-                      />
-                    }
-                  />
+    <Provider store={store}>
+      <ThemeContext.Provider
+        value={{
+          theme,
+          toggleTheme,
+        }}
+      >
+        <div className={style.container}>
+          <div className={style.app}>
+            <BrowserRouter>
+              <Routes>
+                <Route path="/" element={<Header />}>
+                  <Route index element={<Home />} /> {/* index == path="" */}
+                  <Route path="profile" element={<Profile />} />
+                  <Route path="chat">
+                    <Route
+                      index
+                      element={
+                        <ChatList
+                          onDelChat={onDelChat}
+                          chatList={chatList}
+                          onAddChat={onAddChat}
+                        />
+                      }
+                    />
+                    <Route
+                      path=":chatId"
+                      element={
+                        <Workspace
+                          chatList={chatList}
+                          onAddChat={onAddChat}
+                          messages={messages}
+                          setMessages={setMessages}
+                          onDelChat={onDelChat}
+                        />
+                      }
+                    />
+                  </Route>
                 </Route>
-              </Route>
 
-              <Route path="*" element={<PageNotFound />} />
-            </Routes>
-          </BrowserRouter>
+                <Route path="*" element={<PageNotFound />} />
+              </Routes>
+            </BrowserRouter>
+          </div>
         </div>
-      </div>
-    </ThemeContext.Provider>
+      </ThemeContext.Provider>
+    </Provider>
   );
 };

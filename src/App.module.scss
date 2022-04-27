@@ -1,3 +1,9 @@
+@import './assets/vars';
+
+body {
+  background-color: $darkTheme;
+}
+
 .container {
   max-width: 1000px;
   margin: 0 auto;

@@ -112,5 +112,5 @@
   "include": [
     "src/**/*",
     "./jest.config.js"
-  ]
+, "src/types.d.ts"  ]
 }
