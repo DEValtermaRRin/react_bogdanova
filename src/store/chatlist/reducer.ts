@@ -52,8 +52,7 @@ export const chatListReducer: Reducer<ChatListState, ChatListActions> = (
       };
     }
     case DEL_MESSAGES: {
-      if (action.chatId) return { ...state, [action.chatId]: [] };
-      
+      return { ...state, [action.chatId]: [] };
     }
     default:
       return { ...state };

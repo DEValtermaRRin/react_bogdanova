@@ -1,4 +1,3 @@
-
 import { AddChat, DelChat, AddMessage, DelMessages } from './types';
 export const ADD_CHAT = 'CHATLIST::ADD_CHAT';
 export const DEL_CHAT = 'CHATLIST::DEL_CHAT';
@@ -25,4 +24,4 @@ export const addMessage: AddMessage = (chatId, message, user) => ({
 export const delMessage: DelMessages = (chatId) => ({
   type: DEL_MESSAGES,
   chatId,
-})
+});

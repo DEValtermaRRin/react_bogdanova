@@ -18,6 +18,11 @@ const navToolbar = [
     to: '/chat',
     name: 'Chat',
   },
+  {
+    id: 4,
+    to: '/about',
+    name: 'About',
+  },
 ];
 
 /* NavLink / Link to == a href  (учебный момент)*/
@@ -27,8 +32,9 @@ export const Header: FC = () => (
     <header className={style.header}>
       <ul>
         {navToolbar.map((link) => (
-          <li className={style.header__link} key={link.id}>
+          <li className={style.header_li} key={link.id}>
             <NavLink
+              className={style.header__link}
               to={link.to}
               style={({ isActive }) => ({
                 color: isActive ? '#ccc' : '#284779',

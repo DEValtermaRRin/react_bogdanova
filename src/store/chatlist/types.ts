@@ -29,10 +29,10 @@ export type AddMessage = (
   type: typeof ADD_MESSAGE;
   chatId: string;
   message: string;
-  user: string,
+  user: string;
 };
 
-export type DelMessages = ( chatId: string,) => {
+export type DelMessages = (chatId: string) => {
   type: typeof DEL_MESSAGES;
-  chatId: string,
+  chatId: string;
 };

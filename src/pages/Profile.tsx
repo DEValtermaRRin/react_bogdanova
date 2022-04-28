@@ -1,6 +1,6 @@
 import React, { FC, useContext, useState } from 'react';
 import { ThemeContext } from '../utils/ThemeContext';
-import { useDispatch, useSelector } from 'react-redux';
+import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import { changeName, toggleProfile } from '../store/profile/actions';
 
 import { selectName, selectVisible } from '../store/profile/selectors';
@@ -10,8 +10,8 @@ export const Profile: FC = () => {
   const dispatch = useDispatch();
   const [value, setValue] = useState('');
 
-  const visible = useSelector(selectVisible);
-  const name = useSelector(selectName);
+  const visible = useSelector(selectVisible, shallowEqual);
+  const name = useSelector(selectName, shallowEqual);
 
   // TODO добавить темы и стили + радиокнопка
   return (

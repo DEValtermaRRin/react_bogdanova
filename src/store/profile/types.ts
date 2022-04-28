@@ -10,4 +10,3 @@ export interface ChangeName {
   type: typeof CHANGE_NAME;
   name: string;
 }
-

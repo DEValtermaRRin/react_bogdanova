@@ -1,20 +1,13 @@
 import React, { FC } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-// import { Chat } from '../../../../App';
 import { delChat } from '../../../../store/chatlist/actions';
 import { selectChats } from '../../../../store/chatlist/selectors';
 import style from './ChatLinks.module.scss';
 
-// interface ChatLinksProps {
-//   // chatList: Chat[];
-//   onDelChat: (chatName: string) => void;
-// }
-
 export const ChatLinks: FC = () => {
-
-  const chats = useSelector(selectChats) 
-  const dispatch = useDispatch()
+  const chats = useSelector(selectChats, shallowEqual);
+  const dispatch = useDispatch();
 
   return (
     <ul className={style.chatlinks}>

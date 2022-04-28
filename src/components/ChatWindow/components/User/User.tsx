@@ -10,7 +10,7 @@ export const User: FC<UserProps> = ({ name, getName }) => (
   <div className={style.user}>
     <div className={style.user__icon}></div>
     <input
-      className={style.user__icon}
+      className={style.user__input}
       data-testid="user"
       value={name}
       onChange={(e) => getName(e.target.value)}
