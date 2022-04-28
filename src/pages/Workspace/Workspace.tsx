@@ -9,7 +9,7 @@ import { shallowEqual, useSelector } from 'react-redux';
 export const Workspace: FC = () => {
   const chats = useSelector(selectChats, shallowEqual);
   const { chatId } = useParams();
-  console.log(chats);
+
 
   if (!chats.find((chat) => chat.name === chatId)) {
     return <Navigate replace to="/chat" />;

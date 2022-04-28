@@ -22,7 +22,6 @@ export const Form = memo<FormProps>(({ userName }) => {
     if (chatId) {
       dispatch(addMessage(chatId, value, userName));
     }
-
     setValue('');
   };
   return (

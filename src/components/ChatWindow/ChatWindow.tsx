@@ -15,9 +15,13 @@ export const ChatWindow: FC = () => {
   const MessageListWithClass = WithClasses(MessageList);
 
   const chatList = useSelector(
-    selectChatList,
-    (prev, next) => prev.length === next.length,
+    selectChatList/* ,
+    (prev, next) => prev.length === next.length, */
   );
+
+  //  ^
+  //  |   при проверке не добавляются сообщения
+
 
   // закомментированный бот, который ждет своего часа
 
