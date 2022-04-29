@@ -1,26 +1,30 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addChat } from '../../../../store/chatlist/actions';
 import style from './ChatsForm.module.scss';
 
-interface ChatFormProps {
-  handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
-  value: string;
-  setName: React.Dispatch<React.SetStateAction<string>>;
-}
+export const ChatForm: FC = () => {
+  const dispatch = useDispatch();
+  const [name, setName] = useState('');
 
-export const ChatForm: FC<ChatFormProps> = ({
-  handleSubmit,
-  value,
-  setName,
-}) => (
-  <form className={style.chatsform} onSubmit={handleSubmit}>
-    <input
-      className={style.input_add}
-      type="text"
-      value={value}
-      onChange={(e) => setName(e.target.value)}
-    />
-    <button className={style.button_add} type="submit">
-      +
-    </button>
-  </form>
-);
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (name) {
+      dispatch(addChat(name));
+      setName('');
+    }
+  };
+  return (
+    <form className={style.chatsform} onSubmit={handleSubmit}>
+      <input
+        className={style.input_add}
+        type="text"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+      />
+      <button className={style.button_add} type="submit">
+        +
+      </button>
+    </form>
+  );
+};

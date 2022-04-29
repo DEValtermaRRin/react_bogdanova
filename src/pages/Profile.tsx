@@ -1,16 +1,17 @@
 import React, { FC, useContext, useState } from 'react';
 import { ThemeContext } from '../utils/ThemeContext';
-import { useDispatch, useSelector } from 'react-redux';
+import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import { changeName, toggleProfile } from '../store/profile/actions';
-import { ProfileState } from '../store/profile/reducer';
+
+import { selectName, selectVisible } from '../store/profile/selectors';
 
 export const Profile: FC = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
   const dispatch = useDispatch();
   const [value, setValue] = useState('');
 
-  const visible = useSelector((state: ProfileState) => state.visible);
-  const name = useSelector((state: ProfileState) => state.name);
+  const visible = useSelector(selectVisible, shallowEqual);
+  const name = useSelector(selectName, shallowEqual);
 
   // TODO добавить темы и стили + радиокнопка
   return (
@@ -22,7 +23,7 @@ export const Profile: FC = () => {
       </div>
       <hr />
       <div>
-        <input type="checkbox" checked={visible} />
+        <input type="checkbox" defaultChecked={visible} />
         <button onClick={() => dispatch(toggleProfile())}>
           change visible
         </button>
