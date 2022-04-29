@@ -1,22 +1,22 @@
 import React, { FC } from 'react';
+import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { Chat } from '../../../../App';
+import { delChat } from '../../../../store/chatlist/actions';
+import { selectChats } from '../../../../store/chatlist/selectors';
 import style from './ChatLinks.module.scss';
 
-interface ChatLinksProps {
-  chatList: Chat[];
-  onDelChat: (chatName: string) => void;
-}
+export const ChatLinks: FC = () => {
+  const chats = useSelector(selectChats, shallowEqual);
+  const dispatch = useDispatch();
 
-export const ChatLinks: FC<ChatLinksProps> = ({ chatList, onDelChat }) => {
   return (
     <ul className={style.chatlinks}>
-      {chatList.map((chat) => (
+      {chats.map((chat) => (
         <li className={style.chatlink} key={chat.id}>
           <Link to={`/chat/${chat.name}`}>{chat.name}</Link>
           <button
             type="button"
-            onClick={() => onDelChat(chat.name)}
+            onClick={() => dispatch(delChat(chat.name))}
             className={style.chatdel}
           >
             <svg
