@@ -1,10 +1,12 @@
 import React, { FC } from 'react';
-import { ChatWindow } from '../../components/ChatWindow/ChatWindow';
-import { ChatList } from '../../components/ChatList/ChatList';
+
 import { Navigate, useParams } from 'react-router-dom';
-import style from './Workspace.module.scss';
-import { selectChats } from '../../store/chatlist/selectors';
+
 import { shallowEqual, useSelector } from 'react-redux';
+import style from './Workspace.module.scss';
+import { selectChats } from 'src/store/chatlist/selectors';
+import { ChatList } from 'src/components/ChatList/ChatList';
+import { ChatWindow } from 'src/components/ChatWindow/ChatWindow';
 
 export const Workspace: FC = () => {
   const chats = useSelector(selectChats, shallowEqual);
