@@ -79,11 +79,12 @@ module.exports = {
         ],
       },
       {
-        test: /\.(png|jpg|jpeg|gif)$/i,
+        test: /\.(png|jpg|jpeg|gif|bmp|ttf|svg)$/i,
         type: 'asset/resource',
         generator: {
           filename: 'static/[hash][ext]',
         },
+        use: 'url-loader?limit=37882&name=[hash:8]-[name].[ext]',
       },
       {
         test: /\.html$/i,
