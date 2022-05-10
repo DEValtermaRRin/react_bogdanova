@@ -4,7 +4,6 @@ import { nanoid } from 'nanoid';
 import { ADD_CHAT, DEL_CHAT, ADD_MESSAGE, DEL_MESSAGES } from './actions';
 import { ChatListActions, MessageState } from './types';
 
-
 export interface ChatListState {
   [key: string]: MessageState[];
 }

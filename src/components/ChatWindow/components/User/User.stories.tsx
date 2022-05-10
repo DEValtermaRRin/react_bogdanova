@@ -16,7 +16,9 @@ export default {
   },
 } as ComponentMeta<typeof User>;
 
-const Template: ComponentStory<typeof User> = (args: UserProps) => <User {...args} />;
+const Template: ComponentStory<typeof User> = (args: UserProps) => (
+  <User {...args} />
+);
 
 export const Default = Template.bind({});
 

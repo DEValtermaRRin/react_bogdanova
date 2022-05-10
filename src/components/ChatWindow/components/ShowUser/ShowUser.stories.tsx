@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ShowUser } from './ShowUser';
+import { ShowUser, ShowUserProps } from './ShowUser';
 import style from './ShowUser.module.scss';
 import { string } from 'prop-types';
 
@@ -40,7 +40,7 @@ export default {
   },
 } as ComponentMeta<typeof ShowUser>;
 
-const Template: ComponentStory<typeof ShowUser> = (args: any) => (
+const Template: ComponentStory<typeof ShowUser> = (args: ShowUserProps) => (
   <ShowUser {...args} />
 );
 

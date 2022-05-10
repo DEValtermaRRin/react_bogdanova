@@ -17,9 +17,7 @@ export default {
   },
 } as ComponentMeta<typeof Workspace>;
 
-const Template: ComponentStory<typeof Workspace> = () => (
-  <Workspace />
-);
+const Template: ComponentStory<typeof Workspace> = () => <Workspace />;
 
 export const Default = Template.bind({});
 

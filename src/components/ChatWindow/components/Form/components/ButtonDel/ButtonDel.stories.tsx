@@ -29,9 +29,7 @@ export default {
     },
   },
 } as ComponentMeta<typeof ButtonDel>;
-const Template: ComponentStory<typeof ButtonDel> = () => (
-  <ButtonDel />
-);
+const Template: ComponentStory<typeof ButtonDel> = () => <ButtonDel />;
 
 export const Default = Template.bind({});
 

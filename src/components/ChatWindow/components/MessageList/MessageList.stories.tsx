@@ -17,9 +17,9 @@ export default {
   },
 } as ComponentMeta<typeof MessageList>;
 
-const Template: ComponentStory<typeof MessageList> = (args: MessageListProps) => (
-  <MessageList {...args} />
-);
+const Template: ComponentStory<typeof MessageList> = (
+  args: MessageListProps,
+) => <MessageList {...args} />;
 
 export const Default = Template.bind({});
 
