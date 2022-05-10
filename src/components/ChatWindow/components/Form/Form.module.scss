@@ -10,3 +10,12 @@
     align-items: center;
   }
 }
+
+.form__flexAround {
+  display: flex;
+  justify-content: space-around;
+  &__flex {
+    display: flex;
+    align-items: center;
+  }
+}

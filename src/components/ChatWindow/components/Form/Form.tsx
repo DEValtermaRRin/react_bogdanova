@@ -1,31 +1,33 @@
 import React, { useState, memo } from 'react';
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { ThunkDispatch } from 'redux-thunk'
+import { ThunkDispatch } from 'redux-thunk';
 
-import { Button } from './components/Button/Button';
-import { ButtonDel } from './components/ButtonDel/ButtonDel';
-import { Message } from './components/Message/Message';
-import { ChatListState } from '../../../../store/chatlist/reducer';
-import { AddMessage } from '../../../../store/chatlist/types';
+import { ButtonSend } from './components/ButtonSend';
+import { ButtonDel } from './components/ButtonDel';
+import { Message } from './components/Message';
+
 import { addMessageWithReply } from 'src/store/chatlist/actions';
+import { ChatListState } from 'src/store/chatlist/reducer';
+import { AddMessage } from 'src/store/chatlist/types';
 
 import style from './Form.module.scss';
 
-interface FormProps {
+export interface FormProps {
   userName: string;
 }
 
-export const Form = memo<FormProps>(({userName}) => {
+export const Form = memo<FormProps>(({ userName }) => {
   const [value, setValue] = useState('');
-  const dispatch = useDispatch<ThunkDispatch<ChatListState, void, ReturnType<AddMessage>>>();
+  const dispatch =
+    useDispatch<ThunkDispatch<ChatListState, void, ReturnType<AddMessage>>>();
   const { chatId } = useParams();
 
   const handleClickSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (chatId) {
-      dispatch(addMessageWithReply(chatId, {text: value, author: userName}));
+      dispatch(addMessageWithReply(chatId, { text: value, author: userName }));
     }
     setValue('');
   };
@@ -37,7 +39,7 @@ export const Form = memo<FormProps>(({userName}) => {
     >
       <ButtonDel />
       <Message value={value} setValue={setValue} />
-      <Button disabled={!userName} />
+      <ButtonSend disabled={!userName} />
     </form>
   );
 });

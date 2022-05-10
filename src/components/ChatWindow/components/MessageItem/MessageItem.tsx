@@ -7,13 +7,22 @@ export interface Message {
   text: string;
 }
 
-interface MessageProps {
+export interface MessageProps {
   message: Message;
 }
 
 export const MessageItem: FC<MessageProps> = memo(({ message }) => (
-  <p className={style.msg} key={message.id}>
-    <span className={style.msg__author}>{message.author} : </span>
+  <p
+    className={message.author === 'BOT' ? style.bot : style.msg}
+    key={message.id}
+  >
+    <span
+      className={
+        message.author === 'BOT' ? style.bot__botAuthor : style.msg__author
+      }
+    >
+      {message.author} :{' '}
+    </span>
     <span className={style.msg__text}>{message.text}</span>
   </p>
 ));

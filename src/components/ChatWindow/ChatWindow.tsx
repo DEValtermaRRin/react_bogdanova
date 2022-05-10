@@ -1,14 +1,16 @@
 import React, { FC, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Form } from './components/Form/Form';
-import { MessageList } from './components/MessageList/MessageList';
-import { User } from './components/User/User';
-import { ShowUser } from './components/ShowUser/ShowUser';
-import style from './ChatWindow.module.scss';
 import { useSelector } from 'react-redux';
+
+import { MessageList } from './components/MessageList';
+import { User } from './components/User';
+import { Form } from './components/Form';
+import { ShowUser } from './components/ShowUser';
+
 import { selectChatList } from 'src/store/chatlist/selectors';
 import { WithClasses } from 'src/HOC/WithClasses';
 
+import style from './ChatWindow.module.scss';
 
 export const ChatWindow: FC = () => {
   const { chatId } = useParams();
@@ -16,8 +18,8 @@ export const ChatWindow: FC = () => {
   const MessageListWithClass = WithClasses(MessageList);
 
   const chatList = useSelector(
-    selectChatList/* ,
-    (prev, next) => prev.length === next.length, */
+    selectChatList /* ,
+    (prev, next) => prev.length === next.length, */,
   );
 
   //  ^

@@ -8,4 +8,7 @@
   flex-direction: column;
   justify-content: space-between;
   padding: 10px 7px;
+  &__light{
+    background-color: #ccc;
+  }
 }

@@ -1,14 +1,17 @@
 import React, { FC } from 'react';
+import { ReactComponent as Person } from 'src/assets/Icons/person.svg';
 import style from './User.module.scss';
 
-interface UserProps {
+export interface UserProps {
   name: string;
   getName: (e: string) => void;
 }
 
 export const User: FC<UserProps> = ({ name, getName }) => (
   <div className={style.user}>
-    <div className={style.user__icon}></div>
+    <div>
+      <Person className={style.user__icon} />
+    </div>
     <input
       className={style.user__input}
       data-testid="user"

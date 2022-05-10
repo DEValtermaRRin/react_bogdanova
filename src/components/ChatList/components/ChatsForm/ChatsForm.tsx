@@ -1,6 +1,9 @@
 import React, { FC, useState } from 'react';
 import { useDispatch } from 'react-redux';
+
 import { addChat } from 'src/store/chatlist/actions';
+import { ButtonAdd } from './components/ButtonAdd';
+import { InputAdd } from './components/InputAdd';
 
 import style from './ChatsForm.module.scss';
 
@@ -17,15 +20,8 @@ export const ChatForm: FC = () => {
   };
   return (
     <form className={style.chatsform} onSubmit={handleSubmit}>
-      <input
-        className={style.input_add}
-        type="text"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
-      <button className={style.button_add} type="submit">
-        +
-      </button>
+      <InputAdd name={name} setName={setName} />
+      <ButtonAdd />
     </form>
   );
 };

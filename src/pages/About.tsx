@@ -13,7 +13,7 @@ export const About: FC<AboutProps> = ({ visible, toggle }) => {
   return (
     <>
       <h2>About</h2>
-      <input type="checkbox" checked={visible} readOnly/>
+      <input type="checkbox" checked={visible} readOnly />
       <button onClick={() => toggle()}>change visible</button>
     </>
   );

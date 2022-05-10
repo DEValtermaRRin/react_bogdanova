@@ -1,22 +1,36 @@
 import React, { FC, Suspense } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-import { AboutWithConnect } from 'src/pages/About';
-import { Home } from 'src/pages/Home';
-import { Profile } from 'src/pages/Profile';
-import { ChatList } from '../ChatList/ChatList';
-import { Header } from '../Header/Header';
-import { LoadingPage } from '../LoadingPage/LoadingPage';
-import { PageNotFound } from '../PageNotFound/PageNotFound';
+import { ChatList } from '../ChatList';
+import { Header } from '../Header';
+import { LoadingPage } from '../LoadingPage';
+import { PageNotFound } from '../PageNotFound';
+
 import style from './AppRouter.module.scss';
 
 const Workspace = React.lazy(() =>
-  import('src/pages/Workspace/Workspace').then((module) => ({
+  import('src/pages/Workspace').then((module) => ({
     default: module.Workspace,
   })),
 );
 
-// TODO исправить все пути, добавив индексы
+const Profile = React.lazy(() =>
+  import('src/pages/Profile').then((module) => ({
+    default: module.Profile,
+  })),
+);
+
+const AboutWithConnect = React.lazy(() =>
+  import('src/pages/About').then((module) => ({
+    default: module.AboutWithConnect,
+  })),
+);
+
+const Home = React.lazy(() =>
+  import('src/pages/Home').then((module) => ({
+    default: module.Home,
+  })),
+);
 
 export const AppRouter: FC = () => (
   <div className={style.container}>

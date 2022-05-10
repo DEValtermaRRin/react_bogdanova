@@ -1,8 +1,10 @@
 import React, { FC } from 'react';
-import { MessageItem, Message } from '../MessageItem/MessageItem';
+
+import { MessageItem, Message } from '../MessageItem';
+
 import style from './MessageList.module.scss';
 
-interface MessageListProps {
+export interface MessageListProps {
   messages: Message[]; // Array<Msg>  -- комментарий оставлен в учебных целях
 }
 

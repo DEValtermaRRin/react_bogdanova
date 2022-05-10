@@ -1,11 +1,26 @@
-import React from 'react'
-import { ChatLinks } from './ChatLinks'
+import React from 'react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ChatLinks } from './ChatLinks';
+import style from './ChatLinks.module.scss';
 
-
-// title: 'UI/ChatLinks - создаст папку UI в которой будет лежать ChatLinks
 export default {
-  title: 'ChatLinks',
-  component: ChatLinks, 
-}
+  title: 'ChatList/Components/ChatLinks',
+  component: ChatLinks,
+  argTypes: {
+    variant: {
+      type: 'string',
+      description: 'ссылки',
+      defaultValue: [style.chatlinks, style.chatlink, style.chatlnk],
 
-export const DefaultChatLinks = () => <ChatLinks />
+      control: { background: 'color' },
+    },
+  },
+} as ComponentMeta<typeof ChatLinks>;
+
+const Template: ComponentStory<typeof ChatLinks> = () => <ChatLinks />;
+
+export const Default = Template.bind({});
+
+Default.arguments = {
+  variant: [style.chatlinks, style.chatlink, style.chatlnk],
+};

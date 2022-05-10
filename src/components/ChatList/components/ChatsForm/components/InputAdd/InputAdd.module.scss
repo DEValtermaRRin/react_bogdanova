@@ -1,0 +1,18 @@
+.inputAdd {
+  width: 150px;
+  padding: 5px 10px;
+  background: #3832324f;
+  border: 0.1px solid #284779;
+  border-radius: 10px;
+  text-align: left;
+  color: #4978af;
+  font-size: 16px;
+  vertical-align: middle;
+
+  &::placeholder {
+    color: #4979af75;
+  }
+  &:focus {
+    border: 0.5px solid #284779;
+  }
+}

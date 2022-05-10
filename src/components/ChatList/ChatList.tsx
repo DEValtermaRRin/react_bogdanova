@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
+import { ChatLinks } from './components/ChatLinks';
+import { ChatForm } from './components/ChatsForm';
 
-import { ChatLinks } from './components/ChatLinks/ChatLinks';
-import { ChatForm } from './components/ChatsForm/ChatsForm';
 import style from './ChatList.module.scss';
 
 export const ChatList: FC = () => (
