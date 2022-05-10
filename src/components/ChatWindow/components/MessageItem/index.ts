@@ -1,1 +1,3 @@
-export { MessageItem, Message } from './MessageItem';
+export { MessageItem } from './MessageItem';
+export type { Message } from './MessageItem';
+
