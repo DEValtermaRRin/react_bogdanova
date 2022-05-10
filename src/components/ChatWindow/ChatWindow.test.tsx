@@ -14,9 +14,9 @@
 //     expect(asFragment()).toMatchSnapshot();
 //   });
 
-  // разберусь с тестами на майских - не ругаться))
+// разберусь с тестами на майских - не ругаться))
 
-  /*   it('field message is in ChatWindow', () => {
+/*   it('field message is in ChatWindow', () => {
     render(<ChatWindow />);
     expect(screen.getByTestId('button')).toBeInTheDocument();
   });
