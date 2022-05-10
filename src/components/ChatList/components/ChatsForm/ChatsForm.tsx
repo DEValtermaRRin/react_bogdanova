@@ -1,6 +1,6 @@
 import React, { FC, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addChat } from '../../../../store/chatlist/actions';
+import { addChat } from 'src/store/chatlist/actions';
 import style from './ChatsForm.module.scss';
 
 export const ChatForm: FC = () => {

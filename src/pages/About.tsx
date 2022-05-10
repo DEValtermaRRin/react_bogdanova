@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 import { StoreState } from '../store';
-import { toggleProfile } from '../store/profile/actions';
+import { toggleProfile } from '../store/profile/slice';
 
 interface AboutProps {
   visible: boolean;
@@ -13,7 +13,7 @@ export const About: FC<AboutProps> = ({ visible, toggle }) => {
   return (
     <>
       <h2>About</h2>
-      <input type="checkbox" defaultChecked={visible} />
+      <input type="checkbox" checked={visible} readOnly/>
       <button onClick={() => toggle()}>change visible</button>
     </>
   );

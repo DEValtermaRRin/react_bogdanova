@@ -1,26 +1,31 @@
 import React, { useState, memo } from 'react';
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { addMessage } from '../../../../store/chatlist/actions';
+import { ThunkDispatch } from 'redux-thunk'
+
 import { Button } from './components/Button/Button';
 import { ButtonDel } from './components/ButtonDel/ButtonDel';
 import { Message } from './components/Message/Message';
+import { ChatListState } from '../../../../store/chatlist/reducer';
+import { AddMessage } from '../../../../store/chatlist/types';
+import { addMessageWithReply } from 'src/store/chatlist/actions';
+
 import style from './Form.module.scss';
 
 interface FormProps {
   userName: string;
 }
 
-export const Form = memo<FormProps>(({ userName }) => {
+export const Form = memo<FormProps>(({userName}) => {
   const [value, setValue] = useState('');
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<ThunkDispatch<ChatListState, void, ReturnType<AddMessage>>>();
   const { chatId } = useParams();
 
   const handleClickSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (chatId) {
-      dispatch(addMessage(chatId, value, userName));
+      dispatch(addMessageWithReply(chatId, {text: value, author: userName}));
     }
     setValue('');
   };

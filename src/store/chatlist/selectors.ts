@@ -7,5 +7,3 @@ export const selectChats = (state: StoreState) =>
     id: nanoid(),
     name: chat[0],
   }));
-
-// [Object.entries(messages)?.length, messages],

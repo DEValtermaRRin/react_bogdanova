@@ -2,17 +2,11 @@ import { Reducer } from 'redux';
 import { nanoid } from 'nanoid';
 
 import { ADD_CHAT, DEL_CHAT, ADD_MESSAGE, DEL_MESSAGES } from './actions';
-import { ChatListActions } from './types';
+import { ChatListActions, Message, MessageState } from './types';
 import { AUTHOR } from './../../components/ChatWindow/constants';
 
-export interface Message {
-  id: string;
-  author: string;
-  value: string;
-}
-
 export interface ChatListState {
-  [key: string]: Message[];
+  [key: string]: MessageState[];
 }
 
 const initialState: ChatListState = {
@@ -20,7 +14,7 @@ const initialState: ChatListState = {
     {
       id: '1',
       author: 'Alice in Wonderland',
-      value: 'Всё чудесатее и чудесатее',
+      text: 'Всё чудесатее и чудесатее',
     },
   ],
 };
@@ -45,8 +39,8 @@ export const chatListReducer: Reducer<ChatListState, ChatListActions> = (
           ...state[action.chatId],
           {
             id: nanoid(),
-            author: AUTHOR.USER,
-            value: action.message,
+            author: action.message.author,
+            text: action.message.text,
           },
         ],
       };
@@ -55,6 +49,6 @@ export const chatListReducer: Reducer<ChatListState, ChatListActions> = (
       return { ...state, [action.chatId]: [] };
     }
     default:
-      return { ...state };
+      return state;
   }
 };

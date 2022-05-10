@@ -6,6 +6,17 @@ export type ChatListActions =
   | ReturnType<AddMessage>
   | ReturnType<DelMessages>;
 
+  
+export type Message = {
+  text: string,
+  author: string,
+}
+
+export type MessageState = Message & {
+  id: string
+}
+
+
 export interface Chat {
   id: string;
   name: string;
@@ -23,16 +34,18 @@ export type DelChat = (chatName: string) => {
 
 export type AddMessage = (
   chatId: string,
-  message: string,
-  user: string,
+  message: Message,
+
 ) => {
   type: typeof ADD_MESSAGE;
   chatId: string;
-  message: string;
-  user: string;
+  message: Message;
+
 };
 
 export type DelMessages = (chatId: string) => {
   type: typeof DEL_MESSAGES;
   chatId: string;
 };
+
+
