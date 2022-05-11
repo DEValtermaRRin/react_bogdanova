@@ -2,9 +2,9 @@ import { compose, combineReducers } from 'redux';
 import { persistStore, persistReducer } from 'redux-persist';
 import { configureStore } from '@reduxjs/toolkit';
 import storage from 'redux-persist/lib/storage';
-
 import { profileReducer } from './profile/slice';
 import { chatListReducer } from './chatlist/reducer';
+
 
 export const composeEnhancers =
   window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
