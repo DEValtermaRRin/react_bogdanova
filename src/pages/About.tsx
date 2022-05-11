@@ -4,7 +4,6 @@ import { Dispatch } from 'redux';
 import { StoreState } from 'src/store';
 import { toggleProfile } from 'src/store/profile/slice';
 
-
 interface AboutProps {
   visible: boolean;
   toggle: () => void;
