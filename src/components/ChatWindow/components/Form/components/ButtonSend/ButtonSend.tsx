@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { ReactComponent as Send } from 'src/assets/Icons/send.svg';
+import  Send  from 'src/assets/Icons/send.svg';
 import style from './ButtonSend.module.scss';
 
 export interface ButtonSendProps {
@@ -14,6 +14,6 @@ export const ButtonSend: FC<ButtonSendProps> = ({ disabled }) => (
     type="submit"
     disabled={disabled}
   >
-    <Send />
+    <img className={style.btn__dark} src={Send} alt="" />
   </button>
 );

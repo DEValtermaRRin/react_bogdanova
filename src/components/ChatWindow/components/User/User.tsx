@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { ReactComponent as Person } from 'src/assets/Icons/person.svg';
+import Person  from 'src/assets/Icons/person.svg';
 import style from './User.module.scss';
 
 export interface UserProps {
@@ -9,9 +9,7 @@ export interface UserProps {
 
 export const User: FC<UserProps> = ({ name, getName }) => (
   <div className={style.user}>
-    <div>
-      <Person className={style.user__icon} />
-    </div>
+    <img className={style.user__icon} src={Person} alt="User" />
     <input
       className={style.user__input}
       data-testid="user"

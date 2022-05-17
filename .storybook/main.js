@@ -1,4 +1,5 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const path = require('path');
 
 module.exports = {
   stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
@@ -51,6 +52,13 @@ module.exports = {
     ];
 
     config.module.rules.push(...rules);
+
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      src: path.resolve(__dirname, "src"),
+      store: path.resolve(__dirname, 'src/store'),
+      svg: path.resolve(__dirname, 'src/assets/Icons'),
+    };
 
     config.plugins.push(
       ...(isDev

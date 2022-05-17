@@ -8,7 +8,9 @@
     ],
     "baseUrl": ".",
     "paths": {
-      "src/*": ["./src/*"]
+      "src/*": ["./src/*"],
+      "store/*": ["./src/store/*"],
+      "svg/*": ["./src/assets/Icons/*"]
     },
     /* Projects */
     // "incremental": true,                              /* Enable incremental compilation */
@@ -99,5 +101,6 @@
     // "skipDefaultLibCheck": true,                      /* Skip type checking .d.ts files that are included with TypeScript. */
     "skipLibCheck": true /* Skip type checking all .d.ts files. */
   },
-  "include": ["src/**/*", "./jest.config.js", "src/types.d.ts"]
+  "exclude": ["./node_modules", "./dist"],
+  "include": ["src/**/*", "./jest.config.js"]
 }
