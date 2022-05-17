@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import  Send  from 'src/assets/Icons/send.svg';
+import Send from 'src/assets/Icons/send.svg';
 import style from './ButtonSend.module.scss';
 
 export interface ButtonSendProps {

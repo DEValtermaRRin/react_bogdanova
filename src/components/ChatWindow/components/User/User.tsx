@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import Person  from 'src/assets/Icons/person.svg';
+import Person from 'src/assets/Icons/person.svg';
 import style from './User.module.scss';
 
 export interface UserProps {

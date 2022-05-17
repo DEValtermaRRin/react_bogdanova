@@ -113,7 +113,6 @@ module.exports = {
       src: path.resolve(__dirname, 'src'),
       store: path.resolve(__dirname, 'src/store'),
       svg: path.resolve(__dirname, 'src/assets/Icons'),
-
     },
     extensions: ['.jsx', '.js', '.tsx', '.ts'],
   },
