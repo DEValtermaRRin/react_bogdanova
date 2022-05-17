@@ -1,0 +1,23 @@
+.btn__dark {
+  width: 30px;
+  height: 30px;
+  fill: #7f97be;
+  margin-right: 20px;
+  background-color: #161414;
+  &:disabled {
+    fill: #284779;
+    cursor: not-allowed;
+  }
+}
+
+.btn__light {
+  width: 30px;
+  height: 30px;
+  fill: #28477950;
+  margin-right: 20px;
+  background-color: #161414;
+  &:disabled {
+    fill: #6fa0f0;
+    cursor: not-allowed;
+  }
+}

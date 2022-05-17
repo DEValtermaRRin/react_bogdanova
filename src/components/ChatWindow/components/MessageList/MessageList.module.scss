@@ -21,4 +21,27 @@
   }
 }
 
+.messagelistLight {
+  padding: 5px;
+  height: 45vh;
+  width: 550px;
+  overflow: hidden;
+  overflow-y: scroll;
+  background-color: #82abdfbb;
+  border-radius: 5px;
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+  &::-webkit-scrollbar-track {
+    -webkit-box-shadow: 5px 5px 5px -5px #4c7da333 inset;
+    box-shadow: 5px 5px 5px -5px #223c5033 inset;
+    background-color: #5b7ab4;
+    border-radius: 10px;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: linear-gradient(180deg, #969899, #284779);
+  }
+}
+
 

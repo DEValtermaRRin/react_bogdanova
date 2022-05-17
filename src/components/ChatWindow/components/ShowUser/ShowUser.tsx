@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import style from './ShowUser.module.scss';
 
-interface ShowUserProps {
+export interface ShowUserProps {
   userName: string;
 }
 

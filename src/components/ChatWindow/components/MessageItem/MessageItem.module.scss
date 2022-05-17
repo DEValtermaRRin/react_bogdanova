@@ -6,19 +6,38 @@
   border-radius: 10px;
   color: #fff;
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 300;
   margin-bottom: 7px;
   word-wrap: break-word;
-  &__text{
+  font-family: sans-serif;
+  font-style: italic;
+  &__text {
     display: block;
     width: 240px;
-  }
-  &:nth-child(even) {
-    margin-left: 280px;
-    background-color: #62728A;
+    font-size: 14px;
+
   }
   &__author {
     color: #1565c0;
-    font-weight: 700;   
+    font-weight: 700;
+  }
+}
+
+.bot {
+  padding: 10px;
+  font-size: 18px;
+  font-weight: 300;
+  color: #fff;
+  border-radius: 10px;
+  min-height: 50px;
+  margin-left: 280px;
+  background-color: #62728a;
+  margin-bottom: 7px;
+  word-wrap: break-word;
+  font-family: sans-serif;
+  font-style: italic;
+  &__botAuthor {
+    color: #789ac0;
+    font-weight: 700;
   }
 }

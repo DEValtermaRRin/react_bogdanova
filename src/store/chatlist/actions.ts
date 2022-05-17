@@ -30,27 +30,34 @@ export const delMessage: DelMessages = (chatId) => ({
 let timeout: NodeJS.Timeout;
 
 export const addMessageWithReply =
-  (chatId: string, message: Message) => (dispatch: Dispatch<ReturnType<AddMessage>>) => {
+  (chatId: string, message: Message) =>
+  (dispatch: Dispatch<ReturnType<AddMessage>>) => {
     dispatch(addMessage(chatId, message));
 
     if (message.author !== AUTHOR.BOT) {
       if (timeout) {
-        clearTimeout(timeout)
+        clearTimeout(timeout);
       }
       timeout = setTimeout(() => {
         dispatch(
-          addMessage(chatId, { text: 'Some answer from BOT', author: AUTHOR.BOT }),
+          addMessage(chatId, {
+            text: 'Some answer from BOT',
+            author: AUTHOR.BOT,
+          }),
         );
       }, 1000);
     }
 
     if (message.author !== AUTHOR.BOT && message.text === '') {
       if (timeout) {
-        clearTimeout(timeout)
+        clearTimeout(timeout);
       }
       timeout = setTimeout(() => {
         dispatch(
-          addMessage(chatId, { text: 'You entered an empty message', author: AUTHOR.BOT }),
+          addMessage(chatId, {
+            text: 'You entered an empty message',
+            author: AUTHOR.BOT,
+          }),
         );
       }, 1000);
     }
