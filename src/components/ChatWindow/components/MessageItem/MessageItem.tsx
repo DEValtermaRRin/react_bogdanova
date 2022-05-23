@@ -21,7 +21,7 @@ export const MessageItem: FC<MessageProps> = memo(({ message }) => (
         message.author === 'BOT' ? style.bot__botAuthor : style.msg__author
       }
     >
-      {message.author} :{' '}
+      {message.author}: {' '}
     </span>
     <span className={style.msg__text}>{message.text}</span>
   </p>

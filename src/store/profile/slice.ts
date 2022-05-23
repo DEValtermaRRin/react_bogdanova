@@ -14,10 +14,10 @@ const profileSlice = createSlice({
   name: 'profile',
   initialState,
   reducers: {
-    toggleProfile: (state) => {
+    toggleProfile: (state: ProfileState) => {
       state.visible = !state.visible;
     },
-    changeName: (state, action: PayloadAction<string>) => {
+    changeName: (state: ProfileState, action: PayloadAction<string>) => {
       state.name = action.payload;
     },
   },
