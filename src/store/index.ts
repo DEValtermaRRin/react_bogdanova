@@ -3,7 +3,7 @@ import { persistStore, persistReducer } from 'redux-persist';
 import { configureStore } from '@reduxjs/toolkit';
 import storage from 'redux-persist/lib/storage';
 import { profileReducer } from './profile/slice';
-import { chatListReducer } from './chatlist/reducer';
+import { chatlistReducer } from './chatlist/slice';
 
 export const composeEnhancers =
   window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -18,7 +18,7 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
   profile: profileReducer,
-  chatList: chatListReducer,
+  chatList: chatlistReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

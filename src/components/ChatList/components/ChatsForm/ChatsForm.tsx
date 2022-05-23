@@ -1,7 +1,7 @@
 import React, { FC, useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { addChat } from 'src/store/chatlist/actions';
+import { addChat } from 'src/store/chatlist/slice';
 import { ButtonAdd } from './components/ButtonAdd';
 import { InputAdd } from './components/InputAdd';
 
@@ -14,7 +14,7 @@ export const ChatForm: FC = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (name) {
-      dispatch(addChat(name));
+      dispatch(addChat({ name }));
       setName('');
     }
   };

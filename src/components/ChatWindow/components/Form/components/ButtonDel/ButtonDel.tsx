@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import DelChat from 'src/assets/Icons/delChat.svg';
-import { delMessage } from 'src/store/chatlist/actions';
+import { delMessages } from 'src/store/chatlist/slice';
 
 import style from './ButtonDell.module.scss';
 
@@ -12,7 +12,7 @@ export const ButtonDel: FC = () => {
 
   const handleClick = () => {
     if (chatId) {
-      dispatch(delMessage(chatId));
+      dispatch(delMessages({ chatId }));
     }
   };
   return (

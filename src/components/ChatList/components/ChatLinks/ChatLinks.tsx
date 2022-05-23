@@ -1,8 +1,9 @@
 import React, { FC } from 'react';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { delChat } from 'src/store/chatlist/actions';
+
 import { selectChats } from 'src/store/chatlist/selectors';
+import { delChat } from 'src/store/chatlist/slice';
 
 import style from './ChatLinks.module.scss';
 
@@ -19,7 +20,7 @@ export const ChatLinks: FC = () => {
           </Link>
           <button
             type="button"
-            onClick={() => dispatch(delChat(chat.name))}
+            onClick={() => dispatch(delChat({ chatName: chat.name }))}
             className={style.chatdel}
           >
             &times;
