@@ -18,7 +18,7 @@ export const ChatWindow: FC = () => {
   const MessageListWithClass = WithClasses(MessageList);
 
   const chatList = useSelector(
-    selectChatList ,
+    selectChatList,
     // (prev, next) => prev.length === next.length,
   );
 

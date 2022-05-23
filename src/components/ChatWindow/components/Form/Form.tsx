@@ -2,7 +2,6 @@ import React, { useState, memo } from 'react';
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
-
 import { ButtonSend } from './components/ButtonSend';
 import { ButtonDel } from './components/ButtonDel';
 import { Message } from './components/Message';

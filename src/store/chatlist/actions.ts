@@ -1,4 +1,3 @@
-
 export const ADD_CHAT = 'CHATLIST::ADD_CHAT';
 export const DEL_CHAT = 'CHATLIST::DEL_CHAT';
 export const ADD_MESSAGE = 'CHATLIST::ADD_MESSAGE';
