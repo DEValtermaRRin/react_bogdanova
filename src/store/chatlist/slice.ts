@@ -30,13 +30,13 @@ const chatlistSlise = createSlice({
       state: ChatListState,
       action: PayloadAction<{ chatId: string; message: Message }>,
     ) {
-      const {chatId} = action.payload;
-      const {text, author } = action.payload.message
+      const { chatId } = action.payload;
+      const { text, author } = action.payload.message;
       state[chatId].push({
         id: nanoid(),
         author,
         text,
-      })
+      });
     },
     delMessages(
       state: ChatListState,

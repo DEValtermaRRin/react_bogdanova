@@ -5,7 +5,6 @@ import storage from 'redux-persist/lib/storage';
 import { profileReducer } from './profile/slice';
 import { chatlistReducer } from './chatlist/slice';
 
-
 export const composeEnhancers =
   window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 

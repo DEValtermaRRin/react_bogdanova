@@ -20,7 +20,7 @@ export const ChatLinks: FC = () => {
           </Link>
           <button
             type="button"
-            onClick={() => dispatch(delChat({chatName: chat.name}))}
+            onClick={() => dispatch(delChat({ chatName: chat.name }))}
             className={style.chatdel}
           >
             &times;

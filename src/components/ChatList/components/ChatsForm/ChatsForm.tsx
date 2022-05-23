@@ -1,7 +1,6 @@
 import React, { FC, useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-
 import { addChat } from 'src/store/chatlist/slice';
 import { ButtonAdd } from './components/ButtonAdd';
 import { InputAdd } from './components/InputAdd';
