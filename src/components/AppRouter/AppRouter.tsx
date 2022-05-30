@@ -65,10 +65,7 @@ export const AppRouter: FC = () => (
                 <Route index element={<ChatList />} />
                 <Route path=":chatId" element={<Workspace />} />
               </Route>
-              <Route
-                path="about"
-                element={<AboutWithConnect />}
-              />
+              <Route path="about" element={<AboutWithConnect />} />
               <Route path="pictures" element={<Pictures />} />
               <Route
                 path="signin"

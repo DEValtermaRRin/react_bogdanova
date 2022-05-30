@@ -6,13 +6,13 @@ import { API } from 'src/constants';
 import style from './Pictures.module.scss';
 
 export type Picture = {
-  id: string,
-  author: string,
-  width: number,
-  height: number,
-  url: string,
-  download_url: string,
-}
+  id: string;
+  author: string;
+  width: number;
+  height: number;
+  url: string;
+  download_url: string;
+};
 
 export const Pictures: FC = () => {
   const [pictures, setPictures] = useState<Picture[]>([]);
