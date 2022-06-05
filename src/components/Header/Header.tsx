@@ -1,5 +1,10 @@
 import React, { FC } from 'react';
-import { Outlet, NavLink } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { Outlet, NavLink, Link } from 'react-router-dom';
+
+import { selectAuth } from 'store/profile/selectors';
+import { changeAuth } from 'store/profile/slice';
+
 import style from './Header.module.scss';
 
 const navToolbar = [
@@ -23,31 +28,57 @@ const navToolbar = [
     to: '/about',
     name: 'About',
   },
+  {
+    id: 5,
+    to: '/pictures',
+    name: 'Pictures',
+  },
 ];
 
 /* NavLink / Link to == a href  (учебный момент)*/
 
-export const Header: FC = () => (
-  <>
-    <header className={style.header}>
-      <ul>
-        {navToolbar.map((link) => (
-          <li className={style.header_li} key={link.id}>
-            <NavLink
+export const Header: FC = () => {
+  const dispatch = useDispatch();
+  const auth = useSelector(selectAuth);
+
+  // const handleLogout = () => {
+  //   auth
+  // }
+  return (
+    <>
+      <header className={style.header}>
+        <ul>
+          {navToolbar.map((link) => (
+            <li className={style.header_li} key={link.id}>
+              <NavLink
+                className={style.header__link}
+                to={link.to}
+                style={({ isActive }) => ({
+                  color: isActive ? '#ccc' : '#284779',
+                })}
+              >
+                {link.name}
+              </NavLink>
+            </li>
+          ))}
+          {auth ? (
+            <button
+              onClick={() => dispatch(changeAuth(false))}
               className={style.header__link}
-              to={link.to}
-              style={({ isActive }) => ({
-                color: isActive ? '#ccc' : '#284779',
-              })}
             >
-              {link.name}
-            </NavLink>
-          </li>
-        ))}
-      </ul>
-    </header>
-    <main>
-      <Outlet />
-    </main>
-  </>
-);
+              logout
+            </button>
+          ) : (
+            <Link className={style.header__link} to="/signin">
+              Sign In
+            </Link>
+          )}
+        </ul>
+      </header>
+
+      <main>
+        <Outlet />
+      </main>
+    </>
+  );
+};

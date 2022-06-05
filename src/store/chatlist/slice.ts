@@ -1,5 +1,6 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction, createAsyncThunk } from '@reduxjs/toolkit';
 import { nanoid } from 'nanoid';
+import { AUTHOR } from 'src/constants';
 import { Message, MessageState } from './types';
 
 export interface ChatListState {
@@ -46,6 +47,34 @@ const chatlistSlise = createSlice({
     },
   },
 });
+
+let timeout: NodeJS.Timeout;
+export const addMessageWithReply = createAsyncThunk(
+  'chatlist/addMessageWithReply',
+  async (
+    { chatId, message }: { chatId: string; message: Message },
+    { dispatch },
+  ) => {
+    dispatch(addMessage({ chatId, message }));
+    if (message.author !== AUTHOR.BOT) {
+      if (timeout) {
+        clearTimeout(timeout);
+      }
+
+      timeout = setTimeout(() => {
+        dispatch(
+          addMessage({
+            chatId,
+            message: {
+              author: AUTHOR.BOT,
+              text: 'Some answer from BOT',
+            },
+          }),
+        );
+      }, 1000);
+    }
+  },
+);
 
 export const { addChat, delChat, addMessage, delMessages } =
   chatlistSlise.actions;
