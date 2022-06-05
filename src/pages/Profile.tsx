@@ -14,7 +14,7 @@ export const Profile: FC = () => {
   const visible = useSelector(selectVisible, shallowEqual);
   const name = useSelector(selectName, shallowEqual);
 
-	useEffect(() => {
+  useEffect(() => {
     onValue(userRef, (snapshot) => {
       const user = snapshot.val();
       dispatch(changeName(user.name || ''));
@@ -22,11 +22,11 @@ export const Profile: FC = () => {
   }, []);
 
   const handleChangeName = async () => {
-		// set - чтобы полностью перезаписать данные
+    // set - чтобы полностью перезаписать данные
     update(userRef, {
       name: value,
     });
-		setValue('')
+    setValue('');
   };
 
   // TODO добавить темы и стили + радиокнопка

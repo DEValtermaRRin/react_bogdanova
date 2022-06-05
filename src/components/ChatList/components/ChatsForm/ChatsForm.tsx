@@ -18,7 +18,7 @@ export const ChatForm: FC = () => {
     if (name) {
       const id = nanoid();
       // dispatch(addChat({ name }));
-      set(getChatsById(id), { 
+      set(getChatsById(id), {
         id,
         name,
       });

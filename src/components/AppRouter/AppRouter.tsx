@@ -45,7 +45,7 @@ const Pictures = React.lazy(() =>
 );
 
 export const AppRouter: FC = () => {
-	const dispatch = useDispatch();
+  const dispatch = useDispatch();
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       if (user) {
