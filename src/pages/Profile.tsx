@@ -1,5 +1,7 @@
-import React, { FC, useContext, useState } from 'react';
+import { onValue, update } from 'firebase/database';
+import React, { FC, useContext, useEffect, useState } from 'react';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
+import { userRef } from 'src/services/firebase';
 import { selectName, selectVisible } from 'src/store/profile/selectors';
 import { changeName, toggleProfile } from 'src/store/profile/slice';
 import { ThemeContext } from 'src/utils/ThemeContext';
@@ -11,6 +13,21 @@ export const Profile: FC = () => {
 
   const visible = useSelector(selectVisible, shallowEqual);
   const name = useSelector(selectName, shallowEqual);
+
+	useEffect(() => {
+    onValue(userRef, (snapshot) => {
+      const user = snapshot.val();
+      dispatch(changeName(user.name || ''));
+    });
+  }, []);
+
+  const handleChangeName = async () => {
+		// set - чтобы полностью перезаписать данные
+    update(userRef, {
+      name: value,
+    });
+		setValue('')
+  };
 
   // TODO добавить темы и стили + радиокнопка
   return (
@@ -33,7 +50,7 @@ export const Profile: FC = () => {
           onChange={(e) => setValue(e.target.value)}
           value={value}
         />
-        <button onClick={() => dispatch(changeName(value))}>change name</button>
+        <button onClick={handleChangeName}>change name</button>
       </div>
     </>
   );

@@ -19,7 +19,7 @@ export const ChatWindow: FC = () => {
 
   const chatList = useSelector(
     selectChatList,
-    // (prev, next) => prev.length === next.length,
+    // ,
   );
 
   return (
