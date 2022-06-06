@@ -1,4 +1,7 @@
-import { ADD_CHAT, DEL_CHAT, ADD_MESSAGE, DEL_MESSAGES } from './actions';
+export const ADD_CHAT = 'CHATLIST::ADD_CHAT';
+export const DEL_CHAT = 'CHATLIST::DEL_CHAT';
+export const ADD_MESSAGE = 'CHATLIST::ADD_MESSAGE';
+export const DEL_MESSAGES = 'CHATLIST::DEL_MESSAGE';
 
 export type ChatListActions =
   | ReturnType<AddChat>
@@ -18,6 +21,7 @@ export type MessageState = Message & {
 export interface Chat {
   id: string;
   name: string;
+  messages: MessageState[];
 }
 
 export type AddChat = (chatName: string) => {

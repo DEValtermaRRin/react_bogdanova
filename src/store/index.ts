@@ -19,7 +19,7 @@ import { chatlistReducer } from './chatlist/slice';
 export type StoreState = ReturnType<typeof rootReducer>;
 
 const persistConfig = {
-  blacklist: [],
+  blacklist: ['profile'],
   key: 'root',
   storage,
 };

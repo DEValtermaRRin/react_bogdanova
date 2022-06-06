@@ -1,0 +1,46 @@
+@import 'src/assets/vars.scss';
+
+.signin__title {
+  font-size: 3rem;
+  color: #ccc;
+  letter-spacing: 0.5rem;
+  margin-bottom: 40px;
+  margin-left: 40px;
+
+}
+.signin__form {
+  display: flex;
+  flex-direction: column;
+  margin-left: 40px;
+}
+.signin__input {
+  max-width: 50%;
+  background-color: #ccc;
+  padding: 10px;
+  border: 1px solid #161b22;
+  border-radius: 10px;
+  margin-top: 5px;
+  font-size: 2rem;
+  color: #161b22;
+  font-weight: 600;
+  &::placeholder {
+    color: $darkTheme;
+    font-style: italic;
+    opacity: 0.5;
+  }
+}
+.signin__button {
+  display: block;
+  margin-top: 40px;
+  max-width: 25%;
+  padding: 15px;
+  border: 1px solid #161b22;
+  border-radius: 10px;
+  color: #ccc;
+  background-color: inherit;
+  font-size: 1.5rem;
+  &:hover {
+    transition: all ease 0.5s;
+    background-color: #161b22;
+  }
+}

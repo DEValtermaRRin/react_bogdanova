@@ -1,25 +1,22 @@
 import React, { FC, useState } from 'react';
-import { useDispatch } from 'react-redux';
 
-import { changeAuth } from 'store/profile/slice';
+import { logIn } from 'src/services/firebase';
 
 import style from './SignIn.module.scss';
 
 export const SignIn: FC = () => {
-  const [login, setLogin] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState(false);
+  const [error, setError] = useState('');
 
-  const dispatch = useDispatch();
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    setError(false);
-    if (login === 'admin' && password === 'admin') {
-      dispatch(changeAuth(true));
-    } else {
-      setError(true);
+    setError('');
+    try {
+      await logIn(email, password);
+    } catch (err) {
+      setError((err as Error).message);
     }
   };
   return (
@@ -27,9 +24,9 @@ export const SignIn: FC = () => {
       <h2 className={style.signin__title}>Sign In</h2>
       <form onSubmit={handleSubmit} className={style.signin__form}>
         <input
-          type="text"
-          onChange={(e) => setLogin(e.target.value)}
-          value={login}
+          type="email"
+          onChange={(e) => setEmail(e.target.value)}
+          value={email}
           placeholder="Enter login"
           className={style.signin__input}
         />
@@ -41,7 +38,7 @@ export const SignIn: FC = () => {
           className={style.signin__input}
         />
 
-        {error && <p style={{ color: 'red' }}>Неверный логин / пароль </p>}
+        {error && <p style={{ color: 'red' }}>{error}</p>}
         <button className={style.signin__button} type="submit">
           Sign in
         </button>

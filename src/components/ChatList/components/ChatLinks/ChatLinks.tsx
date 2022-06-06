@@ -1,15 +1,27 @@
-import React, { FC } from 'react';
-import { shallowEqual, useDispatch, useSelector } from 'react-redux';
+import React, { FC, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import { selectChats } from 'src/store/chatlist/selectors';
-import { delChat } from 'src/store/chatlist/slice';
+import { Chat } from 'src/store/chatlist/types';
+import { chatsRef, getChatsById } from 'src/services/firebase';
+import { onValue, remove } from 'firebase/database';
 
 import style from './ChatLinks.module.scss';
 
 export const ChatLinks: FC = () => {
-  const chats = useSelector(selectChats, shallowEqual);
-  const dispatch = useDispatch();
+  const [chats, setChats] = useState<Chat[]>([]);
+
+  useEffect(() => {
+    onValue(chatsRef, (chatsSnap) => {
+      const newChats: Chat[] = [];
+      chatsSnap.forEach((snapshot) => {
+        newChats.push(snapshot.val());
+      });
+      setChats(newChats);
+    });
+  }, []);
+  const handleDeleteChat = (id: string) => {
+    remove(getChatsById(id));
+  };
 
   return (
     <ul className={style.chatlinks}>
@@ -20,7 +32,7 @@ export const ChatLinks: FC = () => {
           </Link>
           <button
             type="button"
-            onClick={() => dispatch(delChat({ chatName: chat.name }))}
+            onClick={() => handleDeleteChat(chat.id)}
             className={style.chatdel}
           >
             &times;

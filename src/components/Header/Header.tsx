@@ -1,9 +1,9 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Outlet, NavLink, Link } from 'react-router-dom';
+import { logOut } from 'src/services/firebase';
 
 import { selectAuth } from 'store/profile/selectors';
-import { changeAuth } from 'store/profile/slice';
 
 import style from './Header.module.scss';
 
@@ -38,15 +38,22 @@ const navToolbar = [
 /* NavLink / Link to == a href  (учебный момент)*/
 
 export const Header: FC = () => {
-  const dispatch = useDispatch();
   const auth = useSelector(selectAuth);
+  const [error, setError] = useState('');
 
-  // const handleLogout = () => {
-  //   auth
-  // }
+  const handleSignOut = async () => {
+    setError('');
+    try {
+      await logOut();
+    } catch (err) {
+      setError((err as Error).message);
+    }
+  };
+
   return (
     <>
       <header className={style.header}>
+        {error && <p style={{ color: 'red' }}>{error}</p>}
         <ul>
           {navToolbar.map((link) => (
             <li className={style.header_li} key={link.id}>
@@ -62,16 +69,30 @@ export const Header: FC = () => {
             </li>
           ))}
           {auth ? (
-            <button
-              onClick={() => dispatch(changeAuth(false))}
-              className={style.header__link}
-            >
+            <button onClick={handleSignOut} className={style.header__link}>
               logout
             </button>
           ) : (
-            <Link className={style.header__link} to="/signin">
-              Sign In
-            </Link>
+            <>
+              <NavLink
+                className={style.header__link}
+                to="/signin"
+                style={({ isActive }) => ({
+                  color: isActive ? '#ccc' : '#284779',
+                })}
+              >
+                Sign In
+              </NavLink>
+              <NavLink
+                className={style.header__link}
+                to="/signup"
+                style={({ isActive }) => ({
+                  color: isActive ? '#ccc' : '#284779',
+                })}
+              >
+                Sign Up
+              </NavLink>
+            </>
           )}
         </ul>
       </header>
