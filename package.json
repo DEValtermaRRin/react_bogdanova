@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "https://devaltermarrin.github.io/react_bogdanova/",
+  "type": "module",
   "scripts": {
     "start": "webpack serve --mode=development --open",
     "build": "webpack --mode=production",
@@ -20,7 +21,8 @@
     "loki:update": "npm run build-storybook && loki update --requireReference --reactUri file:./storybook-static",
     "loki:approve": "loki approve",
     "loki:test": "npm run build-storybook && loki test --requireReference --reactUri file:./storybook-static",
-    "chromatic": "npx chromatic --project-token=85d9ef568377"
+    "chromatic": "npx chromatic --project-token=85d9ef568377",
+    "heroku-postbuild": "npm run build"
   },
   "dependencies": {
     "@emotion/react": "^11.9.0",
@@ -42,6 +44,7 @@
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
     "@babel/preset-typescript": "^7.16.7",
+    "@mdx-js/react": "^1.6.22",
     "@storybook/addon-actions": "^6.4.20",
     "@storybook/addon-essentials": "^6.4.20",
     "@storybook/addon-interactions": "^6.4.20",
