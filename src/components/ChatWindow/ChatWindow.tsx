@@ -17,10 +17,7 @@ export const ChatWindow: FC = () => {
   const [userName, setUserName] = useState('');
   const MessageListWithClass = WithClasses(MessageList);
 
-  const chatList = useSelector(
-    selectChatList,
-    // (prev, next) => prev.length === next.length,
-  );
+  const chatList = useSelector(selectChatList);
 
   return (
     <div className={style.chat}>
