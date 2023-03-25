@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "https://devaltermarrin.github.io/react_bogdanova/",
-  "type": "module",
+
   "scripts": {
     "start": "webpack serve --mode=development --open",
     "build": "webpack --mode=production",
